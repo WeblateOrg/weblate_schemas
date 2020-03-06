@@ -25,7 +25,7 @@ __version__ = "0.1"
 import json
 from pathlib import Path
 
-SCHEMA_BASE = Path(__file__).parent.joinpath("schemas")
+SCHEMA_BASE = Path(__file__).resolve().parent.joinpath("schemas")
 
 
 def get_filename(name):
