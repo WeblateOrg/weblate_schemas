@@ -1,0 +1,6 @@
+-r requirements.txt
+codecov
+pre-commit
+pytest
+pytest-cov
+twine
