@@ -28,12 +28,12 @@ from pathlib import Path
 SCHEMA_BASE = Path(__file__).resolve().parent.joinpath("schemas")
 
 
-def get_filename(name):
+def get_path(name):
     """Build filename for a schema."""
     return SCHEMA_BASE.joinpath(name)
 
 
 def load_schema(name):
     """Load schema from a disk."""
-    with open(get_filename(name), "r") as handle:
+    with get_path(name).open("r") as handle:
         return json.load(handle)

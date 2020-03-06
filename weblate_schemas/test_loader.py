@@ -20,12 +20,12 @@
 #
 """Test schemas loader."""
 
-from weblate_schemas import get_filename, load_schema
+from weblate_schemas import get_path, load_schema
 
 
 def test_filename():
     """Test filename calculation."""
-    filename = get_filename("weblate-memory.jsonschema")
+    filename = get_path("weblate-memory.jsonschema")
     assert "weblate-memory.jsonschema" in filename.parts
 
 
