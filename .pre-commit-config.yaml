@@ -14,6 +14,8 @@ repos:
     -   id: check-json
     -   id: fix-encoding-pragma
     -   id: sort-simple-yaml
+    -   id: pretty-format-json
+        args: ["--autofix"]
 -   repo: https://github.com/pre-commit/mirrors-isort
     rev: v4.3.21
     hooks:
