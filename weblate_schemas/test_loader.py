@@ -18,22 +18,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-"""Schemas used by Weblate."""
+"""Test schemas loader."""
 
-__version__ = "0.1"
-
-import json
-from pathlib import Path
-
-SCHEMA_BASE = Path(__file__).parent.joinpath("schemas")
+from weblate_schemas import get_filename, load_schema
 
 
-def get_filename(name):
-    """Build filename for a schema."""
-    return SCHEMA_BASE.joinpath(name)
+def test_filename():
+    """Test filename calculation."""
+    filename = get_filename("weblate-memory.jsonschema")
+    assert "weblate-memory.jsonschema" in filename.parts
 
 
-def load_schema(name):
-    """Load schema from a disk."""
-    with open(get_filename(name), "r") as handle:
-        return json.load(handle)
+def test_load():
+    """Test schema loading."""
+    schema = load_schema("weblate-memory.jsonschema")
+    assert isinstance(schema, dict)
