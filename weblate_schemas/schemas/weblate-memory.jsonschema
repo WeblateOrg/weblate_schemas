@@ -7,7 +7,7 @@
   "items": {
     "$id": "#/items",
     "type": "object",
-    "title": "The Items Schema",
+    "title": "The Transaltion Memory Schema",
     "required": [
       "source_language",
       "target_language",
@@ -20,27 +20,29 @@
       "source_language": {
         "$id": "#/items/properties/source_language",
         "type": "string",
-        "title": "The Source_language Schema",
+        "title": "The Source Language",
+        "description": "ISO 639-1 / ISO 639-2 / IETF BCP 47",
         "default": "",
         "examples": [
           "en"
         ],
-        "pattern": "^(.*)$"
+        "pattern": "^([^ ]*)$"
       },
       "target_language": {
         "$id": "#/items/properties/target_language",
         "type": "string",
-        "title": "The Target_language Schema",
+        "title": "The Target Language",
+        "description": "ISO 639-1 / ISO 639-2 / IETF BCP 47",
         "default": "",
         "examples": [
           "cs"
         ],
-        "pattern": "^(.*)$"
+        "pattern": "^([ ]*)$"
       },
       "source": {
         "$id": "#/items/properties/source",
         "type": "string",
-        "title": "The Source Schema",
+        "title": "The Source String",
         "default": "",
         "examples": [
           "Hello"
@@ -50,7 +52,7 @@
       "target": {
         "$id": "#/items/properties/target",
         "type": "string",
-        "title": "The Target Schema",
+        "title": "The Target String",
         "default": "",
         "examples": [
           "Ahoj"
@@ -60,7 +62,8 @@
       "origin": {
         "$id": "#/items/properties/origin",
         "type": "string",
-        "title": "The Origin Schema",
+        "title": "The String Origin",
+        "description": "Filename or component name",
         "default": "",
         "examples": [
           "test"
@@ -70,12 +73,15 @@
       "category": {
         "$id": "#/items/properties/category",
         "type": "integer",
-        "title": "The Category Schema",
-        "default": 0,
+        "title": "The String Category",
+        "description": "1 is global, 2 is shared, 10000000+ are project specific, 20000000+ are user specific",
+        "default": 1,
+        "minimum": 0,
         "examples": [
           1
         ]
       }
-    }
+    },
+    "additionalProperties": false
   }
 }
