@@ -5,6 +5,7 @@ Changelog
 ---
 
 * Not yet released.
+* Switch to more standard naming of schema files (.schema.json).
 
 0.2
 ---
