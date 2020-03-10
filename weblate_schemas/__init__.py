@@ -20,7 +20,7 @@
 #
 """Schemas used by Weblate."""
 
-__version__ = "0.3"
+__version__ = "0.4"
 
 import json
 from pathlib import Path
