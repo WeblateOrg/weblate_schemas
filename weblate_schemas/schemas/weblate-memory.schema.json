@@ -79,7 +79,7 @@
       "origin",
       "category"
     ],
-    "title": "The Transaltion Memory Schema",
+    "title": "The Translation Memory Item",
     "type": "object"
   },
   "title": "Weblate Translation Memory Schema",
