@@ -4,7 +4,7 @@ Changelog
 0.3
 ---
 
-* Not yet released.
+* Released on 10th March 2029.
 * Switch to more standard naming of schema files (.schema.json).
 
 0.2
