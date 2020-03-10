@@ -26,7 +26,7 @@
         "examples": [
           "en"
         ],
-        "pattern": "^([^ ]*)$"
+        "pattern": "^([^ ]+)$"
       },
       "target_language": {
         "$id": "#/items/properties/target_language",
@@ -37,7 +37,7 @@
         "examples": [
           "cs"
         ],
-        "pattern": "^([ ]*)$"
+        "pattern": "^([^ ]+)$"
       },
       "source": {
         "$id": "#/items/properties/source",
@@ -47,7 +47,7 @@
         "examples": [
           "Hello"
         ],
-        "pattern": "^(.*)$"
+        "pattern": "^(.+)$"
       },
       "target": {
         "$id": "#/items/properties/target",
@@ -57,7 +57,7 @@
         "examples": [
           "Ahoj"
         ],
-        "pattern": "^(.*)$"
+        "pattern": "^(.+)$"
       },
       "origin": {
         "$id": "#/items/properties/origin",

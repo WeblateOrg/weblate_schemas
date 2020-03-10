@@ -5,6 +5,7 @@ Changelog
 ---
 
 * Not yet released.
+* Fixed language code validation.
 
 0.1
 ---
