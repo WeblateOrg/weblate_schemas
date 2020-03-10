@@ -4,7 +4,7 @@ Changelog
 0.2
 ---
 
-* Not yet released.
+* Released on 10th March 2029.
 * Fixed language code validation.
 
 0.1
