@@ -31,7 +31,6 @@ with open(os.path.join(os.path.dirname(__file__), "README.rst")) as readme:
     LONG_DESCRIPTION = readme.read()
 
 REQUIRES = list(open("requirements.txt").read().splitlines())
-REQUIRES_TEST = open("requirements-test.txt").read().splitlines()[1:]
 
 setup(
     name="weblate_schemas",
@@ -70,6 +69,4 @@ setup(
         "Topic :: Software Development :: Localization",
         "Topic :: Utilities",
     ],
-    setup_requires=["pytest-runner"],
-    tests_require=REQUIRES_TEST,
 )
