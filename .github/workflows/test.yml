@@ -3,20 +3,19 @@ name: Test
 on:
   push:
     paths:
-      - 'weblate_schemas/**'
-      - '*.py'
-      - 'requirements*.txt'
-      - '.github/workflows/test.yml'
+      - "weblate_schemas/**"
+      - "*.py"
+      - "requirements*.txt"
+      - ".github/workflows/test.yml"
   pull_request:
     paths:
-      - 'weblate_schemas/**'
-      - '*.py'
-      - 'requirements*.txt'
-      - '.github/workflows/test.yml'
+      - "weblate_schemas/**"
+      - "*.py"
+      - "requirements*.txt"
+      - ".github/workflows/test.yml"
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
