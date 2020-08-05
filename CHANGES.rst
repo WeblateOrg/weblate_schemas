@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.5
+---
+
+* Not yet released.
+
 0.4
 ---
 
