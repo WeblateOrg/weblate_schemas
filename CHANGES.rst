@@ -5,6 +5,7 @@ Changelog
 ---
 
 * Not yet released.
+* Added schema for user downloadable data.
 
 0.3
 ---

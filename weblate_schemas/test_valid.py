@@ -28,3 +28,44 @@ from weblate_schemas import load_schema
 def test_memory():
     """Test memory schema being valid."""
     validate([], load_schema("weblate-memory.schema.json"))
+
+
+def test_userdata():
+    """Test user data schema being valid."""
+    validate(
+        {
+            "basic": {
+                "username": "nijel",
+                "full_name": "Weblate Admin",
+                "email": "michal@cihar.com",
+                "date_joined": "2019-11-18T18:53:54.862Z",
+            },
+            "profile": {
+                "language": "cs",
+                "suggested": 1,
+                "translated": 24,
+                "uploaded": 1,
+                "hide_completed": False,
+                "secondary_in_zen": True,
+                "hide_source_secondary": False,
+                "editor_link": "",
+                "translate_mode": 0,
+                "zen_mode": 0,
+                "special_chars": "\u00a0 ",
+                "dashboard_view": 1,
+                "dashboard_component_list": None,
+                "languages": ["cs", "vi"],
+                "secondary_languages": ["sk"],
+                "watched": ["weblate"],
+            },
+            "auditlog": [
+                {
+                    "address": "127.0.0.1",
+                    "user_agent": "PC / Linux / Firefox 70.0",
+                    "timestamp": "2019-11-18T18:58:30.845Z",
+                    "activity": "login",
+                },
+            ],
+        },
+        load_schema("weblate-userdata.schema.json"),
+    )
