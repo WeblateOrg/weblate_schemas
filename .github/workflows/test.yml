@@ -2,17 +2,7 @@ name: Test
 
 on:
   push:
-    paths:
-      - "weblate_schemas/**"
-      - "*.py"
-      - "requirements*.txt"
-      - ".github/workflows/test.yml"
   pull_request:
-    paths:
-      - "weblate_schemas/**"
-      - "*.py"
-      - "requirements*.txt"
-      - ".github/workflows/test.yml"
 
 jobs:
   test:
