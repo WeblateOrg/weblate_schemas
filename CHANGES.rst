@@ -4,7 +4,7 @@ Changelog
 0.4
 ---
 
-* Not yet released.
+* Released on 5th August 2020.
 * Added schema for user downloadable data.
 
 0.3
