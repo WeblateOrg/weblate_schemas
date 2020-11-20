@@ -14,6 +14,7 @@ repos:
         args: [--fix=lf]
       - id: check-json
       - id: fix-encoding-pragma
+        args: [--remove]
   - repo: https://github.com/pre-commit/mirrors-isort
     rev: v5.6.4
     hooks:
@@ -41,6 +42,13 @@ repos:
           - flake8-self
           - flake8-string-format
           - pep8-naming
+  - repo: local
+    hooks:
+      - id: pyupgrade
+        name: pyupgrade
+        entry: pyupgrade --py36-plus
+        language: system
+        types: [python]
   - repo: https://github.com/ambv/black
     rev: 20.8b1
     hooks:
