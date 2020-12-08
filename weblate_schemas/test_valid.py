@@ -29,6 +29,23 @@ def test_memory():
     validate([], load_schema("weblate-memory.schema.json"))
 
 
+def test_memory_newline():
+    """Test memory entry containing newlines."""
+    validate(
+        [
+            {
+                "source": "Error reading config file {filename!r}:\n{error_msg}",
+                "target": "Fehler der Konfigurationsdatei {filename!r}:\n{error_msg}",
+                "source_language": "en",
+                "target_language": "de",
+                "origin": "myproject/mycomponent",
+                "category": 10000004,
+            }
+        ],
+        load_schema("weblate-memory.schema.json"),
+    )
+
+
 def test_userdata():
     """Test user data schema being valid."""
     validate(
