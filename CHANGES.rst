@@ -4,7 +4,8 @@ Changelog
 0.5
 ---
 
-* Not yet released.
+* Released on 8th Decemeber 2020.
+* Fixed validation of translation memory entries with newlines.
 
 0.4
 ---
