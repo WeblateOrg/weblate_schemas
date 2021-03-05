@@ -4,7 +4,9 @@ Changelog
 0.6
 ---
 
-* Not yet released.
+* Released on 5th Match 2021.
+* Improved examples.
+* Fixed license information.
 
 0.5
 ---
