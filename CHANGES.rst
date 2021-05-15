@@ -5,6 +5,7 @@ Changelog
 ---
 
 * Not yet released.
+* Fixed minor syntax issue in user data schema.
 
 0.6
 ---
