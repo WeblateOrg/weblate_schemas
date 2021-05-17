@@ -4,7 +4,7 @@ Changelog
 0.7
 ---
 
-* Not yet released.
+* Released on 17th Match 2021.
 * Fixed minor syntax issue in user data schema.
 
 0.6
