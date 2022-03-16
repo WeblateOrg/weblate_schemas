@@ -38,3 +38,8 @@ Install using pip:
     pip3 install weblate_schemas
 
 Sources are available at <https://github.com/WeblateOrg/weblate_schemas>.
+
+Contributing
+------------
+
+Contributions are welcome! See `documentation <https://docs.weblate.org/en/latest/contributing/modules.html>`__ for more information.
