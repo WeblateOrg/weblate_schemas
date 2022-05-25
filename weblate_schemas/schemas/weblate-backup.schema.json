@@ -4,6 +4,7 @@
   "type": "object",
   "definitions": {},
   "title": "Weblate backup",
+  "additionalProperties": false,
   "required": [
     "metadata",
     "project",
@@ -20,8 +21,9 @@
         "domain",
         "timestamp"
       ],
+      "additionalProperties": false,
       "properties": {
-        "username": {
+        "version": {
           "$id": "#root/metadata/version",
           "title": "Weblate version",
           "type": "string",
@@ -63,6 +65,7 @@
       "$id": "#root/project",
       "title": "Project",
       "type": "object",
+      "additionalProperties": false,
       "required": [
         "name",
         "slug",
@@ -78,6 +81,12 @@
         "enable_hooks"
       ],
       "properties": {
+        "id": {
+          "$id": "#root/project/id",
+          "title": "ID",
+          "type": "integer",
+          "default": 0
+        },
         "name": {
           "$id": "#root/project/name",
           "title": "Project name",
@@ -186,6 +195,7 @@
           "name",
           "color"
         ],
+        "additionalProperties": false,
         "properties": {
           "name": {
             "$id": "#root/auditlog/items/name",
