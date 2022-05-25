@@ -103,7 +103,6 @@ def test_backup():
                 "timestamp": "2021-11-18T18:53:54.862Z",
             },
             "project": {
-                "id": 1,
                 "name": "Hello",
                 "slug": "hello",
                 "web": "https://weblate.org/",

@@ -81,12 +81,6 @@
         "enable_hooks"
       ],
       "properties": {
-        "id": {
-          "$id": "#root/project/id",
-          "title": "ID",
-          "type": "integer",
-          "default": 0
-        },
         "name": {
           "$id": "#root/project/name",
           "title": "Project name",
