@@ -5,6 +5,7 @@ Changelog
 ---
 
 * Not yet released.
+* Added schema for project backups.
 
 0.7
 ---
