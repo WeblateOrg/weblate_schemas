@@ -4,7 +4,7 @@ Changelog
 0.8
 ---
 
-* Not yet released.
+* Released on 25th July 2022.
 * Added schema for project backups.
 
 0.7
