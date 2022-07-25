@@ -206,7 +206,7 @@
             "type": "string",
             "default": "",
             "examples": [
-              "PC / Linux / Firefox 70.0"
+              "navy"
             ],
             "enum": [
               "navy",
