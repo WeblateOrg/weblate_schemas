@@ -45,6 +45,7 @@
           "$id": "#root/metadata/domain",
           "title": "Server domain",
           "type": "string",
+          "format": "hostname",
           "default": "",
           "examples": [
             "weblate.example.com"
