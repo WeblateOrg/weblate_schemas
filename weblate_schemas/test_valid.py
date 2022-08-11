@@ -29,19 +29,19 @@ from jsonschema import validate
 from weblate_schemas import load_schema, validate_schema
 
 
-def test_memory():
+def test_validate_manual():
     """Test memory schema being valid."""
     validate([], load_schema("weblate-memory.schema.json"))
 
 
-def test_validate_schema():
+def test_memory():
     """Test validate schema API."""
     validate_schema([], "weblate-memory.schema.json")
 
 
 def test_memory_newline():
     """Test memory entry containing newlines."""
-    validate(
+    validate_schema(
         [
             {
                 "source": "Error reading config file {filename!r}:\n{error_msg}",
@@ -52,13 +52,13 @@ def test_memory_newline():
                 "category": 10000004,
             }
         ],
-        load_schema("weblate-memory.schema.json"),
+        "weblate-memory.schema.json",
     )
 
 
 def test_userdata():
     """Test user data schema being valid."""
-    validate(
+    validate_schema(
         {
             "basic": {
                 "username": "nijel",
@@ -93,13 +93,13 @@ def test_userdata():
                 },
             ],
         },
-        load_schema("weblate-userdata.schema.json"),
+        "weblate-userdata.schema.json",
     )
 
 
 def test_backup():
     """Test memory schema being valid."""
-    validate(
+    validate_schema(
         {
             "metadata": {
                 "version": "4.13",
@@ -123,5 +123,5 @@ def test_backup():
             },
             "labels": [],
         },
-        load_schema("weblate-backup.schema.json"),
+        "weblate-backup.schema.json",
     )

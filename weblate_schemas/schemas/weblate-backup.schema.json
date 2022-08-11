@@ -54,6 +54,7 @@
           "$id": "#root/metadata/timestamp",
           "title": "Export timestamp",
           "type": "string",
+          "format": "date-time",
           "default": "",
           "examples": [
             "2019-11-18T18:53:54.862Z"

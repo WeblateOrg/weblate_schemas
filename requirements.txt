@@ -1,1 +1,2 @@
 jsonschema
+strict-rfc3339
