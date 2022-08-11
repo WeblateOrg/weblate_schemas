@@ -1,13 +1,14 @@
 Changelog
 =========
 
-0.9
----
+2022.1
+------
 
 * Not yet released.
 * Added validate_schema API.
 * Added caching to schema loading.
 * Added timestamp validation.
+* Switched to CalVer versioning.
 
 0.8
 ---
