@@ -31,6 +31,8 @@ from pathlib import Path
 
 SCHEMA_BASE = Path(__file__).resolve().parent.joinpath("schemas")
 
+SCHEMA_CACHE = {}
+
 
 def get_path(name):
     """Build filename for a schema."""
@@ -39,5 +41,7 @@ def get_path(name):
 
 def load_schema(name):
     """Load schema from a disk."""
-    with get_path(name).open("r") as handle:
-        return json.load(handle)
+    if name not in SCHEMA_CACHE:
+        with get_path(name).open("r") as handle:
+            SCHEMA_CACHE[name] = json.load(handle)
+    return SCHEMA_CACHE[name]
