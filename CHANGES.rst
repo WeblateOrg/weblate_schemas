@@ -5,6 +5,8 @@ Changelog
 ---
 
 * Not yet released.
+* Added validate_schema API.
+* Added caching to schema loading.
 
 0.8
 ---

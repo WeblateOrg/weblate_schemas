@@ -26,12 +26,17 @@
 
 from jsonschema import validate
 
-from weblate_schemas import load_schema
+from weblate_schemas import load_schema, validate_schema
 
 
 def test_memory():
     """Test memory schema being valid."""
     validate([], load_schema("weblate-memory.schema.json"))
+
+
+def test_validate_schema():
+    """Test validate schema API."""
+    validate_schema([], "weblate-memory.schema.json")
 
 
 def test_memory_newline():
