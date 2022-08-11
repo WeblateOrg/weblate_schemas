@@ -70,7 +70,6 @@
       "required": [
         "name",
         "slug",
-        "web",
         "instructions",
         "access_control",
         "language_aliases",
@@ -104,6 +103,7 @@
           "$id": "#root/project/web",
           "title": "",
           "type": "string",
+          "format": "uri",
           "default": "Project website",
           "examples": [
             "https://weblate.org/"
