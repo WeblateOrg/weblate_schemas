@@ -9,6 +9,7 @@ Changelog
 * Added caching to schema loading.
 * Added timestamp validation.
 * Switched to CalVer versioning.
+* Added schema for component backups.
 
 0.8
 ---
