@@ -410,12 +410,339 @@
     "units": {
       "$id": "#root/units",
       "title": "Unit data",
-      "type": "array"
+      "type": "array",
+      "items": {
+        "$id": "#root/units/items",
+        "title": "Unit data",
+        "type": "object",
+        "required": [
+          "translation_pk",
+          "id_hash",
+          "location",
+          "context",
+          "note",
+          "flags",
+          "source",
+          "previous_source",
+          "target",
+          "state",
+          "original_state",
+          "details",
+          "position",
+          "num_words",
+          "priority",
+          "pending",
+          "timestamp",
+          "extra_flags",
+          "explanation",
+          "labels",
+          "source_unit",
+          "comments",
+          "checks",
+          "suggestions"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "translation_pk": {
+            "$id": "#root/units/items/translation_pk",
+            "title": "",
+            "type": "integer"
+          },
+          "id_hash": {
+            "$id": "#root/units/items/id_hash",
+            "title": "",
+            "pattern": "[0-9a-f]{16}",
+            "type": "string"
+          },
+          "location": {
+            "$id": "#root/units/items/location",
+            "title": "",
+            "type": "string"
+          },
+          "context": {
+            "$id": "#root/units/items/context",
+            "title": "",
+            "type": "string"
+          },
+          "note": {
+            "$id": "#root/units/items/note",
+            "title": "",
+            "type": "string"
+          },
+          "flags": {
+            "$id": "#root/units/items/flags",
+            "title": "",
+            "type": "string"
+          },
+          "source": {
+            "$id": "#root/units/items/source",
+            "title": "",
+            "type": "string"
+          },
+          "previous_source": {
+            "$id": "#root/units/items/previous_source",
+            "title": "",
+            "type": "string"
+          },
+          "target": {
+            "$id": "#root/units/items/target",
+            "title": "",
+            "type": "string"
+          },
+          "state": {
+            "$id": "#root/units/items/state",
+            "title": "",
+            "type": "integer"
+          },
+          "original_state": {
+            "$id": "#root/units/items/original_state",
+            "title": "",
+            "type": "integer"
+          },
+          "details": {
+            "$id": "#root/units/items/details",
+            "title": "",
+            "type": "object"
+          },
+          "position": {
+            "$id": "#root/units/items/position",
+            "title": "",
+            "type": "integer"
+          },
+          "num_words": {
+            "$id": "#root/units/items/num_words",
+            "title": "",
+            "type": "integer"
+          },
+          "priority": {
+            "$id": "#root/units/items/priority",
+            "title": "",
+            "type": "integer"
+          },
+          "pending": {
+            "$id": "#root/units/items/pending",
+            "title": "",
+            "type": "boolean"
+          },
+          "timestamp": {
+            "$id": "#root/units/items/timestamp",
+            "type": "string",
+            "format": "date-time",
+            "default": "",
+            "examples": [
+              "2019-11-18T18:53:54.862Z"
+            ]
+          },
+          "extra_flags": {
+            "$id": "#root/units/items/extra_flags",
+            "title": "",
+            "type": "string"
+          },
+          "explanation": {
+            "$id": "#root/units/itintegerems/explanation",
+            "title": "",
+            "type": "string"
+          },
+          "source_unit": {
+            "$id": "#root/units/items/source_unit",
+            "pattern": "[0-9a-f]{16}",
+            "title": "",
+            "type": "string"
+          },
+          "labels": {
+            "$id": "#root/units/items/labels",
+            "title": "",
+            "type": "array",
+            "items": {
+              "$id": "#root/units/items/labels/items",
+              "title": "Unit labels",
+              "type": "string"
+            }
+          },
+          "comments": {
+            "$id": "#root/units/items/comments",
+            "title": "",
+            "type": "array",
+            "items": {
+              "$id": "#root/units/items/comments/items",
+              "title": "Unit comments",
+              "type": "object",
+              "required": [
+                "user",
+                "comment",
+                "timestamp",
+                "resolved"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "user": {
+                  "$id": "#root/units/items/comments/items/user",
+                  "type": "string"
+                },
+                "comment": {
+                  "$id": "#root/units/items/comments/items/comment",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "$id": "#root/units/items/comments/items/timestamp",
+                  "type": "string",
+                  "format": "date-time",
+                  "default": "",
+                  "examples": [
+                    "2019-11-18T18:53:54.862Z"
+                  ]
+                },
+                "resolved": {
+                  "$id": "#root/units/items/comments/items/resolved",
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "checks": {
+            "$id": "#root/units/items/checks",
+            "title": "",
+            "type": "array",
+            "items": {
+              "$id": "#root/units/items/checks/items",
+              "title": "Unit checks",
+              "type": "object",
+              "required": [
+                "name",
+                "dismissed"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "$id": "#root/units/items/checks/items/name",
+                  "type": "string"
+                },
+                "dismissed": {
+                  "$id": "#root/units/items/checks/items/dismissed",
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "suggestions": {
+            "$id": "#root/units/items/suggestions",
+            "title": "",
+            "type": "array",
+            "items": {
+              "$id": "#root/units/items/suggestions/items",
+              "title": "Unit suggestions",
+              "type": "object",
+              "required": [
+                "target",
+                "user",
+                "timestamp",
+                "votes"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "target": {
+                  "$id": "#root/units/items/suggestions/items/target",
+                  "type": "string"
+                },
+                "user": {
+                  "$id": "#root/units/items/suggestions/items/user",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "$id": "#root/units/items/suggestions/items/timestamp",
+                  "type": "string",
+                  "format": "date-time",
+                  "default": "",
+                  "examples": [
+                    "2019-11-18T18:53:54.862Z"
+                  ]
+                },
+                "votes": {
+                  "$id": "#root/units/items/suggestions/items/votes",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "user",
+                      "value"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "user": {
+                        "$id": "#root/units/items/suggestions/items/votes/items/user",
+                        "type": "string"
+                      },
+                      "value": {
+                        "$id": "#root/units/items/suggestions/items/votes/items/value",
+                        "type": "integer",
+                        "enum": [
+                          -1,
+                          1
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "screenshots": {
       "$id": "#root/screenshots",
       "title": "Screenshot data",
-      "type": "array"
+      "type": "array",
+      "items": {
+        "$id": "#root/screenshots/items",
+        "type": "object",
+        "required": [
+          "name",
+          "image",
+          "translation_pk",
+          "units",
+          "timestamp",
+          "user"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "$id": "#root/screenshots/items/name",
+            "type": "string"
+          },
+          "image": {
+            "$id": "#root/screenshots/items/image",
+            "type": "string"
+          },
+          "translation_pk": {
+            "$id": "#root/screenshots/items/translation_pk",
+            "title": "",
+            "type": "integer"
+          },
+          "user": {
+            "$id": "#root/screenshots/items/user",
+            "type": "string"
+          },
+          "timestamp": {
+            "$id": "#root/screenshots/items/timestamp",
+            "type": "string",
+            "format": "date-time",
+            "default": "",
+            "examples": [
+              "2019-11-18T18:53:54.862Z"
+            ]
+          },
+          "units": {
+            "$id": "#root/screenshots/items/units",
+            "type": "array",
+            "items": {
+              "$id": "#root/screenshots/items/units/items",
+              "pattern": "[0-9a-f]{16}",
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   }
 }

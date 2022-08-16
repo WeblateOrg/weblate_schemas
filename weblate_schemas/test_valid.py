@@ -193,8 +193,63 @@ def test_component():
                     "filename": "po/cs.po",
                 },
             ],
-            "units": [],
-            "screenshots": [],
+            "units": [
+                {
+                    "translation_pk": 10,
+                    "id_hash": "1234567890abcdef",
+                    "location": "",
+                    "context": "",
+                    "note": "",
+                    "flags": "",
+                    "source": "Source",
+                    "previous_source": "",
+                    "target": "Source",
+                    "state": 100,
+                    "original_state": 100,
+                    "details": {},
+                    "position": 1,
+                    "num_words": 1,
+                    "priority": 100,
+                    "pending": False,
+                    "timestamp": "2019-11-18T18:58:30.845Z",
+                    "extra_flags": "",
+                    "explanation": "",
+                    "labels": ["demo"],
+                    "source_unit": "1234567890abcdef",
+                    "comments": [
+                        {
+                            "comment": "Comment",
+                            "user": "nijel",
+                            "timestamp": "2019-11-18T18:58:30.845Z",
+                            "resolved": False,
+                        }
+                    ],
+                    "checks": [
+                        {
+                            "name": "end_stop",
+                            "dismissed": False,
+                        }
+                    ],
+                    "suggestions": [
+                        {
+                            "user": "nijel",
+                            "target": "Sources",
+                            "timestamp": "2019-11-18T18:58:30.845Z",
+                            "votes": [{"user": "nijel", "value": 1}],
+                        }
+                    ],
+                }
+            ],
+            "screenshots": [
+                {
+                    "name": "Test",
+                    "image": "test.png",
+                    "translation_pk": 10,
+                    "units": ["1234567890abcdef"],
+                    "timestamp": "2019-11-18T18:58:30.845Z",
+                    "user": "nijel",
+                }
+            ],
         },
         "weblate-component.schema.json",
     )
