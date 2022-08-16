@@ -181,7 +181,7 @@ def test_component():
             },
             "translations": [
                 {
-                    "pk": 1,
+                    "id": 1,
                     "language_code": "cs",
                     "plural": {
                         "source": 1,
@@ -195,7 +195,7 @@ def test_component():
             ],
             "units": [
                 {
-                    "translation_pk": 10,
+                    "translation_id": 10,
                     "id_hash": "1234567890abcdef",
                     "location": "",
                     "context": "",
@@ -244,7 +244,7 @@ def test_component():
                 {
                     "name": "Test",
                     "image": "test.png",
-                    "translation_pk": 10,
+                    "translation_id": 10,
                     "units": ["1234567890abcdef"],
                     "timestamp": "2019-11-18T18:58:30.845Z",
                     "user": "nijel",

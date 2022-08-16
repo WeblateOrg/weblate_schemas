@@ -336,7 +336,7 @@
         "title": "Items",
         "type": "object",
         "required": [
-          "pk",
+          "id",
           "language_code",
           "plural",
           "revision",
@@ -344,8 +344,8 @@
         ],
         "additionalProperties": false,
         "properties": {
-          "pk": {
-            "$id": "#root/translations/items/pk",
+          "id": {
+            "$id": "#root/translations/items/id",
             "title": "Primary key",
             "type": "integer"
           },
@@ -416,7 +416,7 @@
         "title": "Unit data",
         "type": "object",
         "required": [
-          "translation_pk",
+          "translation_id",
           "id_hash",
           "location",
           "context",
@@ -443,8 +443,8 @@
         ],
         "additionalProperties": false,
         "properties": {
-          "translation_pk": {
-            "$id": "#root/units/items/translation_pk",
+          "translation_id": {
+            "$id": "#root/units/items/translation_id",
             "title": "",
             "type": "integer"
           },
@@ -699,7 +699,7 @@
         "required": [
           "name",
           "image",
-          "translation_pk",
+          "translation_id",
           "units",
           "timestamp",
           "user"
@@ -714,8 +714,8 @@
             "$id": "#root/screenshots/items/image",
             "type": "string"
           },
-          "translation_pk": {
-            "$id": "#root/screenshots/items/translation_pk",
+          "translation_id": {
+            "$id": "#root/screenshots/items/translation_id",
             "title": "",
             "type": "integer"
           },
