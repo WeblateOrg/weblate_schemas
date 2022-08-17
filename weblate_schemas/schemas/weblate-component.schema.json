@@ -436,7 +436,6 @@
           "extra_flags",
           "explanation",
           "labels",
-          "source_unit",
           "comments",
           "checks",
           "suggestions"
@@ -540,12 +539,6 @@
           },
           "explanation": {
             "$id": "#root/units/itintegerems/explanation",
-            "title": "",
-            "type": "string"
-          },
-          "source_unit": {
-            "$id": "#root/units/items/source_unit",
-            "pattern": "[0-9a-f]{16}",
             "title": "",
             "type": "string"
           },
