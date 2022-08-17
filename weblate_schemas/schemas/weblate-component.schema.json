@@ -721,7 +721,14 @@
           },
           "user": {
             "$id": "#root/screenshots/items/user",
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "timestamp": {
             "$id": "#root/screenshots/items/timestamp",
