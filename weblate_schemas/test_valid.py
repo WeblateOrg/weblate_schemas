@@ -215,7 +215,6 @@ def test_component():
                     "extra_flags": "",
                     "explanation": "",
                     "labels": ["demo"],
-                    "source_unit": "1234567890abcdef",
                     "comments": [
                         {
                             "comment": "Comment",
