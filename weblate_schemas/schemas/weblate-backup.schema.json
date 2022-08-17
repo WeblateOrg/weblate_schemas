@@ -71,6 +71,7 @@
       "required": [
         "name",
         "slug",
+        "web",
         "instructions",
         "access_control",
         "language_aliases",
