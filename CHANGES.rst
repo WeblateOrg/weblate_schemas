@@ -4,7 +4,7 @@ Changelog
 2022.1
 ------
 
-* Not yet released.
+* Released on 17th August 2022.
 * Added validate_schema API.
 * Added caching to schema loading.
 * Added timestamp validation.
