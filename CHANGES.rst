@@ -5,6 +5,7 @@ Changelog
 ------
 
 * Not yet released.
+* Fixed testsuite failure.
 
 2022.1
 ------
