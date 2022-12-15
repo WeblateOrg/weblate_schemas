@@ -25,9 +25,7 @@
 #
 """Setup file for easy installation."""
 
-import os
-
-from setuptools import find_packages, setup
+from setuptools import setup
 
 REQUIRES = list(open("requirements.txt").read().splitlines())
 
