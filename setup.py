@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright © 2012–2023 Michal Čihař <michal@cihar.com>
+# Copyright © Michal Čihař <michal@weblate.org>
 #
 # This file is part of Weblate weblate_schemas
 # <https://github.com/WeblateOrg/weblate_schemas>
