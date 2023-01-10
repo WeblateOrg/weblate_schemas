@@ -50,7 +50,7 @@ repos:
     - flake8-assertive==2.1.0
     - pep8-naming==0.13.3
 - repo: https://github.com/adrienverge/yamllint
-  rev: v1.28.0
+  rev: v1.29.0
   hooks:
   - id: yamllint
 - repo: meta
