@@ -6,6 +6,8 @@ Changelog
 
 * Not yet released.
 * Fixed testsuite failure.
+* Added support for Python 3.11 and 3.10.
+* Dropped support for Python 3.6.
 
 2022.1
 ------
