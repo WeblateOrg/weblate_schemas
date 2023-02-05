@@ -1,13 +1,14 @@
 Changelog
 =========
 
-2022.2
+2023.1
 ------
 
-* Not yet released.
+* Released on 5th February 2023.
 * Fixed testsuite failure.
 * Added support for Python 3.11 and 3.10.
 * Dropped support for Python 3.6.
+* Fixed project backups schema to allow blank project website.
 
 2022.1
 ------
