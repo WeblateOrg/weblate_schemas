@@ -97,7 +97,7 @@ def test_userdata():
     )
 
 
-def test_backup():
+def test_backup_blank_url():
     """Test memory schema being valid."""
     validate_schema(
         {
@@ -111,6 +111,36 @@ def test_backup():
                 "name": "Hello",
                 "slug": "hello",
                 "web": "https://weblate.org/",
+                "instructions": "",
+                "set_language_team": False,
+                "use_shared_tm": False,
+                "contribute_shared_tm": False,
+                "access_control": 0,
+                "translation_review": False,
+                "source_review": False,
+                "enable_hooks": False,
+                "language_aliases": "",
+            },
+            "labels": [],
+        },
+        "weblate-backup.schema.json",
+    )
+
+
+def test_backup():
+    """Test memory schema being valid."""
+    validate_schema(
+        {
+            "metadata": {
+                "version": "4.13",
+                "server": "Weblate",
+                "domain": "weblate.example.com",
+                "timestamp": "2021-11-18T18:53:54.862Z",
+            },
+            "project": {
+                "name": "Hello",
+                "slug": "hello",
+                "web": "",
                 "instructions": "",
                 "set_language_team": False,
                 "use_shared_tm": False,
