@@ -97,7 +97,7 @@ def test_userdata():
     )
 
 
-def test_backup_blank_url():
+def test_backup():
     """Test memory schema being valid."""
     validate_schema(
         {
@@ -127,7 +127,7 @@ def test_backup_blank_url():
     )
 
 
-def test_backup():
+def test_backup_blank_url():
     """Test memory schema being valid."""
     validate_schema(
         {
