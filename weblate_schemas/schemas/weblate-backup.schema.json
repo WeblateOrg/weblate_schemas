@@ -109,10 +109,11 @@
               "type": "string",
               "format": "uri"
             },
-            { 
-              "type": "string", 
+            {
+              "type": "string",
               "maxLength": 0
-          }],
+            }
+          ],
           "default": "Project website",
           "examples": [
             "https://weblate.org/"
