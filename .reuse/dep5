@@ -1,0 +1,16 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: weblate_schemas
+Upstream-Contact: Michal Čihař <michal@weblate.org>
+Source: https://weblate.org/
+
+Files: weblate_schemas/schemas/*.schema.json
+Copyright: Michal Čihař <michal@weblate.org>
+License: MIT
+
+Files: CHANGES.rst README.rst
+Copyright: Michal Čihař <michal@weblate.org>
+License: MIT
+
+Files: .deepsource.toml .github/workflows/setup.yml .github/workflows/test.yml .gitignore .pre-commit-config.yaml MANIFEST.in pyproject.toml setup.cfg requirements*.txt
+Copyright: Michal Čihař <michal@weblate.org>
+License: MIT
