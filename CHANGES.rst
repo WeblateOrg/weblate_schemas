@@ -4,7 +4,7 @@ Changelog
 2023.2
 ------
 
-* Not yet released.
+* Fixed project backup with unicode website URLs.
 
 2023.1
 ------
