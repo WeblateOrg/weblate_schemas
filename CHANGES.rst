@@ -4,6 +4,7 @@ Changelog
 2023.2
 ------
 
+* Released on 2nd March 2023.
 * Fixed project backup with unicode website URLs.
 
 2023.1
