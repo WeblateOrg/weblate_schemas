@@ -8,6 +8,7 @@
 
 from setuptools import setup
 
-REQUIRES = list(open("requirements.txt").read().splitlines())
+with open("requirements.txt") as handle:
+    REQUIRES = list(handle.read().splitlines())
 
 setup(install_requires=REQUIRES)
