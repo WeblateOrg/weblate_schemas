@@ -4,7 +4,8 @@ Changelog
 2023.3
 ------
 
-* Not yet released.
+* Released on 8th June 2023.
+* Added theme to user data.
 
 2023.2
 ------
