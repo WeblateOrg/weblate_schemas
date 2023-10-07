@@ -6,7 +6,6 @@
 
 import json
 from pathlib import Path
-from typing import Dict
 
 from jsonschema import FormatChecker, validate
 
@@ -28,7 +27,7 @@ def load_schema(name: str):
     return SCHEMA_CACHE[name]
 
 
-def validate_schema(data: Dict, name: str):
+def validate_schema(data: dict, name: str):
     """Validate data to match schema."""
     schema = load_schema(name)
     validate(data, schema, format_checker=FormatChecker())
