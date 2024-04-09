@@ -1,10 +1,13 @@
 Changelog
 =========
 
-2023.4
+2024.1
 ------
 
-* Not yet released.
+* Released on 9th April 2024.
+* Dropped support for Python 3.7 and 3.8.
+* Added support for Python 3.12.
+* Clarified address field on user data.
 
 2023.3
 ------
