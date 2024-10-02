@@ -7,7 +7,6 @@
 import json
 from pathlib import Path
 
-from jsonschema import FormatChecker, validate
 
 SCHEMA_BASE = Path(__file__).resolve().parent.joinpath("schemas")
 
@@ -29,5 +28,8 @@ def load_schema(name: str):
 
 def validate_schema(data: dict, name: str):
     """Validate data to match schema."""
+    # Import this lazily as it is expensive
+    from jsonschema import FormatChecker, validate
+
     schema = load_schema(name)
     validate(data, schema, format_checker=FormatChecker())
