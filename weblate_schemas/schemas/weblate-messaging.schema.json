@@ -75,7 +75,7 @@
       "type": "string"
     },
     "translation": {
-      "title": "Translation",
+      "title": "Translation Language Code",
       "type": "string"
     }
   }
