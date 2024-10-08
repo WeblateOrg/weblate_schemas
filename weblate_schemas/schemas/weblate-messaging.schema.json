@@ -30,17 +30,26 @@
     },
     "target": {
       "title": "Target",
-      "type": "array",
+      "type": [
+        "string",
+        "array"
+      ],
       "description": "New value of the change (eg. new translation of the string)"
     },
     "old": {
       "title": "Old Value",
-      "type": "array",
+      "type": [
+        "string",
+        "array"
+      ],
       "description": "Old value of the change (eg. previous translation of the string)"
     },
     "source": {
       "title": "Source",
-      "type": "array",
+      "type": [
+        "string",
+        "array"
+      ],
       "description": "Source string"
     },
     "url": {
