@@ -1,3 +1,4 @@
+fedora-messaging
 fqdn
 jsonschema
 rfc3987
