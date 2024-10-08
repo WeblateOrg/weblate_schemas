@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2024.2
+------
+* Added schema for Weblate Fedora Messaging.
+
 2024.1
 ------
 
