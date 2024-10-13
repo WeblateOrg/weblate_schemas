@@ -5,6 +5,7 @@
 """Test schemas are valid."""
 
 from jsonschema import validate
+from jsonschema.exceptions import ValidationError
 
 from weblate_schemas import load_schema, validate_schema
 
@@ -294,100 +295,114 @@ def test_component():
     )
 
 
+merge_body = {
+    "id": 1,
+    "action": "Merged repository",
+    "timestamp": "2017-06-15T11:30:47.325000+00:00",
+    "url": "https://example.com/projects/test/test/",
+    "component": "test",
+}
+
+new_string_body = {
+    "id": 2,
+    "action": "New source string",
+    "timestamp": "2017-06-15T11:30:47.372000+00:00",
+    "url": "https://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
+    "component": "test",
+    "translation": "cs",
+    "source": ["Hello, world!\n"],
+}
+
+new_translation_body = {
+    "id": 12,
+    "action": "New translation",
+    "timestamp": "2019-10-17T15:57:08.772591+00:00",
+    "url": "https://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
+    "target": ["Ahoj svete!\n"],
+    "author": "testuser",
+    "user": "testuser",
+    "project": "test",
+    "component": "test",
+    "translation": "cs",
+    "source": ["Hello, world!\n"],
+}
+
+resource_update_body = {
+    "id": 6,
+    "action": "Resource update",
+    "timestamp": "2017-06-15T11:30:47.410000+00:00",
+    "url": "https://example.com/projects/test/test/cs/",
+    "project": "test",
+    "component": "test",
+    "translation": "cs",
+}
+
+removal_body = {
+    "id": 9,
+    "action": "Removed project",
+    "timestamp": "2019-10-17T15:57:08.559420+00:00",
+    "target": "test",
+    "user": "testuser",
+}
+
+new_contributor_body = {
+    "id": 11,
+    "action": "New contributor",
+    "timestamp": "2019-10-17T15:57:08.759960+00:00",
+    "url": "https://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
+    "author": "testuser",
+    "user": "testuser",
+    "project": "test",
+    "component": "test",
+    "translation": "cs",
+    "source": ["Hello, world!\n"],
+}
+
+invalid_body = {
+    "id": 1,
+    "action": "Merged repository",
+    "timestamp": "invalid datetime",
+    "url": "https://example.com/projects/test/test/",
+    "component": "test",
+}
+
+
 def test_weblate_messaging_merge() -> None:
-    """Test Weblate Fedora Messaging schema validate a repository merge event."""
-    validate_schema(
-        {
-            "id": 1,
-            "action": "Merged repository",
-            "timestamp": "2017-06-15T11:30:47.325000+00:00",
-            "url": "http://example.com/projects/test/test/",
-            "component": "test",
-        },
-        "weblate-messaging.schema.json",
-    )
+    """Test Weblate Fedora Messaging schema to validate a repository merge event."""
+    validate_schema(merge_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_new_string() -> None:
-    """Test Weblate Fedora Messaging schema validate a new source string event."""
-    validate_schema(
-        {
-            "id": 2,
-            "action": "New source string",
-            "timestamp": "2017-06-15T11:30:47.372000+00:00",
-            "url": "http://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
-            "component": "test",
-            "translation": "cs",
-            "source": ["Hello, world!\n"],
-        },
-        "weblate-messaging.schema.json",
-    )
+    """Test Weblate Fedora Messaging schema to validate a new source string event."""
+    validate_schema(new_string_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_resource_update() -> None:
-    """Test Weblate Fedora Messaging schema validate a resource update event."""
-    validate_schema(
-        {
-            "id": 6,
-            "action": "Resource update",
-            "timestamp": "2017-06-15T11:30:47.410000+00:00",
-            "url": "http://example.com/projects/test/test/cs/",
-            "project": "test",
-            "component": "test",
-            "translation": "cs",
-        },
-        "weblate-messaging.schema.json",
-    )
+    """Test Weblate Fedora Messaging schema to validate a resource update event."""
+    validate_schema(resource_update_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_removal() -> None:
-    """Test Weblate Fedora Messaging schema validate a project removal event."""
-    validate_schema(
-        {
-            "id": 9,
-            "action": "Removed project",
-            "timestamp": "2019-10-17T15:57:08.559420+00:00",
-            "target": "test",
-            "user": "testuser",
-        },
-        "weblate-messaging.schema.json",
-    )
+    """Test Weblate Fedora Messaging schema to validate a project removal event."""
+    validate_schema(removal_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_new_contributor() -> None:
-    """Test Weblate Fedora Messaging schema validate a new contributor event."""
-    validate_schema(
-        {
-            "id": 11,
-            "action": "New contributor",
-            "timestamp": "2019-10-17T15:57:08.759960+00:00",
-            "url": "http://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
-            "author": "testuser",
-            "user": "testuser",
-            "project": "test",
-            "component": "test",
-            "translation": "cs",
-            "source": ["Hello, world!\n"],
-        },
-        "weblate-messaging.schema.json",
-    )
+    """Test Weblate Fedora Messaging schema to validate a new contributor event."""
+    validate_schema(new_contributor_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_new_translation() -> None:
-    """Test Weblate Fedora Messaging schema validate a new translation event."""
-    validate_schema(
-        {
-            "id": 12,
-            "action": "New translation",
-            "timestamp": "2019-10-17T15:57:08.772591+00:00",
-            "url": "http://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
-            "target": ["Ahoj svete!\n"],
-            "author": "testuser",
-            "user": "testuser",
-            "project": "test",
-            "component": "test",
-            "translation": "cs",
-            "source": ["Hello, world!\n"],
-        },
-        "weblate-messaging.schema.json",
-    )
+    """Test Weblate Fedora Messaging schema to validate a new translation event."""
+    validate_schema(new_translation_body, "weblate-messaging.schema.json")
+
+
+def test_weblate_invalid_body() -> None:
+    """Test Weblate Fedora Messaging schema to validate an invalid body."""
+    is_invalid = False
+    try:
+        validate_schema(invalid_body, "weblate-messaging.schema.json")
+    except ValidationError:
+        is_invalid = True
+
+    assert is_invalid
