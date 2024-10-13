@@ -11,4 +11,13 @@ from setuptools import setup
 with open("requirements.txt") as handle:
     REQUIRES = list(handle.read().splitlines())
 
-setup(install_requires=REQUIRES)
+setup(
+    name="weblate_schemas",
+    entry_points={
+        "fedora.messages": [
+            "base.message=weblate_schemas.messages:BaseMessage",
+            "weblate.message=weblate_schemas.messages:WeblateV1Message",
+        ]
+    },
+    install_requires=REQUIRES,
+)

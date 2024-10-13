@@ -6,7 +6,7 @@
 
 from datetime import datetime
 
-from weblate_schemas import load_schema
+from . import load_schema
 from fedora_messaging import message
 
 
@@ -28,7 +28,7 @@ class BaseMessage(message.Message):
         return "https://weblate.org/static/weblate-128.png"
 
 
-class WeblateMessage(BaseMessage):
+class WeblateV1Message(BaseMessage):
     """Actual Weblate message class which uses the Messaging schema."""
 
     def __init__(self, **kwargs) -> None:
@@ -100,6 +100,17 @@ class WeblateMessage(BaseMessage):
     def translation(self) -> str:
         """Return the translation language code."""
         return self.body["translation"]
+
+    @property
+    def summary(self) -> str:
+        """Return the message summary."""
+        return f"{self.body['action']} event occurred in {self.body['timestamp']}"
+
+    @property
+    def usernames(self):
+        """Return the usernames involved."""
+        users = {self.body["author"], self.body["user"]}
+        return list(users)
 
     def __str__(self) -> str:
         """Return a human-readable representation of the message."""

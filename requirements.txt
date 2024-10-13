@@ -1,5 +1,5 @@
 fedora-messaging
 fqdn
-jsonschema
+jsonschema[format]
 rfc3987
 strict-rfc3339
