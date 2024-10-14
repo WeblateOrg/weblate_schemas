@@ -7,12 +7,12 @@
   "definitions": {},
   "type": "object",
   "required": [
-    "id",
+    "change_id",
     "action",
     "timestamp"
   ],
   "properties": {
-    "id": {
+    "change_id": {
       "title": "Change ID",
       "type": "integer",
       "description": "Numerical ID of change"
