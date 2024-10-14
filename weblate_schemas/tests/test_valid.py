@@ -296,7 +296,7 @@ def test_component():
 
 
 merge_body = {
-    "id": 1,
+    "change_id": 1,
     "action": "Merged repository",
     "timestamp": "2017-06-15T11:30:47.325000+00:00",
     "url": "https://example.com/projects/test/test/",
@@ -304,7 +304,7 @@ merge_body = {
 }
 
 new_string_body = {
-    "id": 2,
+    "change_id": 2,
     "action": "New source string",
     "timestamp": "2017-06-15T11:30:47.372000+00:00",
     "url": "https://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
@@ -314,7 +314,7 @@ new_string_body = {
 }
 
 new_translation_body = {
-    "id": 12,
+    "change_id": 12,
     "action": "New translation",
     "timestamp": "2019-10-17T15:57:08.772591+00:00",
     "url": "https://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
@@ -328,7 +328,7 @@ new_translation_body = {
 }
 
 resource_update_body = {
-    "id": 6,
+    "change_id": 6,
     "action": "Resource update",
     "timestamp": "2017-06-15T11:30:47.410000+00:00",
     "url": "https://example.com/projects/test/test/cs/",
@@ -338,7 +338,7 @@ resource_update_body = {
 }
 
 removal_body = {
-    "id": 9,
+    "change_id": 9,
     "action": "Removed project",
     "timestamp": "2019-10-17T15:57:08.559420+00:00",
     "target": "test",
@@ -346,7 +346,7 @@ removal_body = {
 }
 
 new_contributor_body = {
-    "id": 11,
+    "change_id": 11,
     "action": "New contributor",
     "timestamp": "2019-10-17T15:57:08.759960+00:00",
     "url": "https://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
@@ -359,7 +359,7 @@ new_contributor_body = {
 }
 
 invalid_body = {
-    "id": 1,
+    "change_id": 1,
     "action": "Merged repository",
     "timestamp": "invalid datetime",
     "url": "https://example.com/projects/test/test/",
