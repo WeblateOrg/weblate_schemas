@@ -40,7 +40,7 @@ class WeblateV1Message(BaseMessage):
     @property
     def agent_name(self) -> str:
         """The username who cause the action."""
-        return self.body.get("user", "")
+        return self.body.get("user")
 
     @property
     def change_id(self) -> int:
@@ -80,46 +80,41 @@ class WeblateV1Message(BaseMessage):
     @property
     def author(self) -> str:
         """Return the author username."""
-        return self.body.get("author", "")
+        return self.body.get("author")
 
     @property
     def user(self) -> str:
         """Return the acting username."""
-        return self.body.get("user", "")
+        return self.body.get("user")
 
     @property
     def project(self) -> str:
         """Return the project slug."""
-        return self.body.get("project", "")
+        return self.body.get("project")
 
     @property
     def component(self) -> str:
         """Return the component slug."""
-        return self.body.get("component", "")
+        return self.body.get("component")
 
     @property
     def translation(self) -> str:
         """Return the translation language code."""
-        return self.body.get("translation", "")
+        return self.body.get("translation")
 
     @property
     def summary(self) -> str:
         """Return the message summary."""
         return "{} event{} occurred in {}.".format(
-            self.body.get("action"),
-            " done by {}".format(self.body.get("user"))
-            if self.body.get("user", None)
-            else "",
-            self.body.get("timestamp"),
+            self.action,
+            f" done by {self.user}" if self.user else "",
+            self.timestamp,
         )
 
     @property
-    def usernames(self):
+    def usernames(self) -> list[str]:
         """Return the usernames involved."""
-        users = []
-        users += [self.author] if self.author else []
-        users += [self.user] if self.user else []
-        return sorted(set(users))
+        return sorted({name for name in (self.author, self.user) if name})
 
     def __str__(self) -> str:
         """Return a human-readable representation of the message."""
