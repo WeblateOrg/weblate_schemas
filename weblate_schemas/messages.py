@@ -105,11 +105,8 @@ class WeblateV1Message(BaseMessage):
     @property
     def summary(self) -> str:
         """Return the message summary."""
-        return "{} event{} occurred in {}.".format(
-            self.action,
-            f" done by {self.user}" if self.user else "",
-            self.timestamp,
-        )
+        user = f" done by { self.user }" if self.user else ""
+        return f"{ self.action } event{user} occurred in { self.timestamp }."
 
     @property
     def usernames(self) -> list[str]:
