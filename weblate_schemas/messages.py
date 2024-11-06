@@ -43,17 +43,17 @@ class WeblateV1Message(BaseMessage):
     @property
     def change_id(self) -> int:
         """Return the change ID."""
-        return self.body.get("change_id")
+        return self.body["change_id"]
 
     @property
     def action(self) -> str:
         """Return the change verbose name."""
-        return self.body.get("action")
+        return self.body["action"]
 
     @property
     def timestamp(self) -> datetime:
         """Return the timestamp of the change."""
-        return self.body.get("timestamp")
+        return self.body["timestamp"]
 
     @property
     def target(self) -> str | list[str]:
