@@ -38,7 +38,7 @@ keywords = [
 ]
 name = "weblate_schemas"
 requires-python = ">=3.9"
-version = "2024.1"
+version = "2024.2"
 
 [[project.authors]]
 email = "michal@cihar.com"
