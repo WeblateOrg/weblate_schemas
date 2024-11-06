@@ -1,9 +1,7 @@
 include LICENSE
 include ChangeLog
-include README.rst
-include CHANGES.rst
-include requirements-test.txt
-include requirements.txt
+include *.rst
+include *.md
 include weblate_schemas/*.py
 recursive-include weblate_schemas/schemas *
 global-exclude *.swp *.swo
