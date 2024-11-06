@@ -4,7 +4,9 @@ Changelog
 2024.2
 ------
 
+* Released on 6th November 2024.
 * Added schema for Weblate Fedora Messaging.
+* Added support for Python 3.13.
 
 2024.1
 ------
