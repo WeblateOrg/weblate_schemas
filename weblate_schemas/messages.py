@@ -5,6 +5,8 @@
 """Message class implementation for Weblate Fedora Messaging."""
 
 from __future__ import annotations
+
+from __future__ import annotations
 from datetime import datetime
 
 from . import load_schema
