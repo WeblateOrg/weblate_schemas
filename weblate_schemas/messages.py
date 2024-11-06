@@ -16,9 +16,6 @@ from fedora_messaging import message
 class BaseMessage(message.Message):
     """Inherit the Message class from fedora_messaging."""
 
-    def __init__(self, **kwargs) -> None:
-        """Initialize BaseMessage class."""
-        super().__init__(**kwargs)
 
     @property
     def app_name(self) -> str:
