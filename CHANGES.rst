@@ -7,6 +7,7 @@ Changelog
 * Released on 6th November 2024.
 * Added schema for Weblate Fedora Messaging.
 * Added support for Python 3.13.
+* Clarified language field in the component backup schema.
 
 2024.1
 ------
