@@ -113,4 +113,4 @@ class WeblateV1Message(BaseMessage):
 
     def __str__(self) -> str:
         """Return a human-readable representation of the message."""
-        return f"{self.action} {self.timestamp}"
+        return f"{self.summary}"
