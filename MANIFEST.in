@@ -1,5 +1,4 @@
 include LICENSE
-include ChangeLog
 include *.rst
 include *.md
 include weblate_schemas/*.py
