@@ -16,7 +16,6 @@ from fedora_messaging import message
 class BaseMessage(message.Message):
     """Inherit the Message class from fedora_messaging."""
 
-
     @property
     def app_name(self) -> str:
         """Return the app name."""
