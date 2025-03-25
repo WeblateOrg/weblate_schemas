@@ -1,14 +1,13 @@
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
-  "setuptools>=61.2"
+  "setuptools>=78.0.2"
 ]
 
 [project]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
@@ -36,7 +35,8 @@ keywords = [
   "weblate",
   "translate"
 ]
-license = {text = "MIT"}
+license = "MIT"
+license-files = ["LICENSE"]
 name = "weblate_schemas"
 requires-python = ">=3.9"
 version = "2024.2"
