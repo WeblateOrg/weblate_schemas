@@ -36,6 +36,7 @@ keywords = [
   "weblate",
   "translate"
 ]
+license = {text = "MIT"}
 name = "weblate_schemas"
 requires-python = ">=3.9"
 version = "2024.2"
@@ -46,9 +47,6 @@ name = "Michal Čihař"
 
 [project.entry-points."fedora.messages"]
 "weblate.message.v1" = "weblate_schemas.messages:WeblateV1Message"
-
-[project.license]
-text = "MIT"
 
 [project.optional-dependencies]
 dev = [
