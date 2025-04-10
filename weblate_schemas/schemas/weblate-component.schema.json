@@ -84,6 +84,15 @@
             "hello"
           ]
         },
+        "category": {
+          "$id": "#root/component/category",
+          "title": "Category slug",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "my-category"
+          ]
+        },
         "vcs": {
           "$id": "#root/component/vcs",
           "title": "Version control system",
