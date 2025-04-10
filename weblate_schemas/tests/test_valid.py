@@ -103,6 +103,19 @@ def test_backup():
                 "language_aliases": "",
             },
             "labels": [],
+            "categories": [
+                {
+                    "name": "My category",
+                    "slug": "my-category",
+                    "categories": [
+                        {
+                            "name": "My Subcategory",
+                            "slug": "my-subcategory",
+                            "categories": [],
+                        }
+                    ],
+                }
+            ],
         },
         "weblate-backup.schema.json",
     )
@@ -170,127 +183,133 @@ def test_backup_unicode_url():
 
 def test_component():
     """Test memory schema being valid."""
-    validate_schema(
-        {
-            "component": {
-                "name": "Demo",
-                "slug": "demo",
-                "vcs": "git",
-                "repo": "https://github.com/WeblateOrg/demo.git",
-                "push": "",
-                "repoweb": "",
-                "report_source_bugs": "",
-                "branch": "main",
-                "push_branch": "",
-                "filemask": "po/*.po",
-                "template": "",
-                "edit_template": False,
-                "intermediate": "",
-                "new_base": "",
-                "file_format": "po",
-                "locked": False,
-                "allow_translation_propagation": True,
-                "enable_suggestions": True,
-                "suggestion_voting": True,
-                "suggestion_autoaccept": 2,
-                "check_flags": "",
-                "enforced_checks": [],
-                "license": "",
-                "agreement": "",
-                "new_lang": "contact",
-                "language_code_style": "",
-                "manage_units": True,
-                "merge_style": "rebase",
-                "commit_message": "",
-                "add_message": "",
-                "delete_message": "",
-                "merge_message": "",
-                "addon_message": "",
-                "pull_message": "",
-                "push_on_commit": False,
-                "commit_pending_age": 24,
-                "auto_lock_error": False,
-                "source_language": "en",
-                "language_regex": "^[^.]+$",
-                "variant_regex": "",
-                "priority": 100,
-                "restricted": False,
-                "is_glossary": False,
-                "glossary_color": "",
-                "remote_revision": "",
-                "local_revision": "",
-            },
-            "translations": [
-                {
-                    "id": 1,
-                    "language_code": "cs",
-                    "plural": {
-                        "source": 1,
-                        "number": 3,
-                        "formula": "(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2",
-                        "type": 2,
-                    },
-                    "revision": "abcdef",
-                    "filename": "po/cs.po",
-                },
-            ],
-            "units": [
-                {
-                    "translation_id": 10,
-                    "id_hash": "1234567890abcdef",
-                    "location": "",
-                    "context": "",
-                    "note": "",
-                    "flags": "",
-                    "source": "Source",
-                    "previous_source": "",
-                    "target": "Source",
-                    "state": 100,
-                    "original_state": 100,
-                    "details": {},
-                    "position": 1,
-                    "num_words": 1,
-                    "priority": 100,
-                    "pending": False,
-                    "timestamp": "2019-11-18T18:58:30.845Z",
-                    "extra_flags": "",
-                    "explanation": "",
-                    "labels": ["demo"],
-                    "comments": [
-                        {
-                            "comment": "Comment",
-                            "user": "nijel",
-                            "timestamp": "2019-11-18T18:58:30.845Z",
-                            "resolved": False,
-                        }
-                    ],
-                    "checks": [
-                        {
-                            "name": "end_stop",
-                            "dismissed": False,
-                        }
-                    ],
-                    "suggestions": [
-                        {
-                            "user": "nijel",
-                            "target": "Sources",
-                            "timestamp": "2019-11-18T18:58:30.845Z",
-                            "votes": [{"user": "nijel", "value": 1}],
-                        }
-                    ],
-                }
-            ],
-            "screenshots": [
-                {
-                    "name": "Test",
-                    "image": "test.png",
-                    "translation_id": 10,
-                    "units": ["1234567890abcdef"],
-                    "timestamp": "2019-11-18T18:58:30.845Z",
-                    "user": "nijel",
-                }
-            ],
+    data = {
+        "component": {
+            "name": "Demo",
+            "slug": "demo",
+            "vcs": "git",
+            "repo": "https://github.com/WeblateOrg/demo.git",
+            "push": "",
+            "repoweb": "",
+            "report_source_bugs": "",
+            "branch": "main",
+            "push_branch": "",
+            "filemask": "po/*.po",
+            "template": "",
+            "edit_template": False,
+            "intermediate": "",
+            "new_base": "",
+            "file_format": "po",
+            "locked": False,
+            "allow_translation_propagation": True,
+            "enable_suggestions": True,
+            "suggestion_voting": True,
+            "suggestion_autoaccept": 2,
+            "check_flags": "",
+            "enforced_checks": [],
+            "license": "",
+            "agreement": "",
+            "new_lang": "contact",
+            "language_code_style": "",
+            "manage_units": True,
+            "merge_style": "rebase",
+            "commit_message": "",
+            "add_message": "",
+            "delete_message": "",
+            "merge_message": "",
+            "addon_message": "",
+            "pull_message": "",
+            "push_on_commit": False,
+            "commit_pending_age": 24,
+            "auto_lock_error": False,
+            "source_language": "en",
+            "language_regex": "^[^.]+$",
+            "variant_regex": "",
+            "priority": 100,
+            "restricted": False,
+            "is_glossary": False,
+            "glossary_color": "",
+            "remote_revision": "",
+            "local_revision": "",
         },
+        "translations": [
+            {
+                "id": 1,
+                "language_code": "cs",
+                "plural": {
+                    "source": 1,
+                    "number": 3,
+                    "formula": "(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2",
+                    "type": 2,
+                },
+                "revision": "abcdef",
+                "filename": "po/cs.po",
+            },
+        ],
+        "units": [
+            {
+                "translation_id": 10,
+                "id_hash": "1234567890abcdef",
+                "location": "",
+                "context": "",
+                "note": "",
+                "flags": "",
+                "source": "Source",
+                "previous_source": "",
+                "target": "Source",
+                "state": 100,
+                "original_state": 100,
+                "details": {},
+                "position": 1,
+                "num_words": 1,
+                "priority": 100,
+                "pending": False,
+                "timestamp": "2019-11-18T18:58:30.845Z",
+                "extra_flags": "",
+                "explanation": "",
+                "labels": ["demo"],
+                "comments": [
+                    {
+                        "comment": "Comment",
+                        "user": "nijel",
+                        "timestamp": "2019-11-18T18:58:30.845Z",
+                        "resolved": False,
+                    }
+                ],
+                "checks": [
+                    {
+                        "name": "end_stop",
+                        "dismissed": False,
+                    }
+                ],
+                "suggestions": [
+                    {
+                        "user": "nijel",
+                        "target": "Sources",
+                        "timestamp": "2019-11-18T18:58:30.845Z",
+                        "votes": [{"user": "nijel", "value": 1}],
+                    }
+                ],
+            }
+        ],
+        "screenshots": [
+            {
+                "name": "Test",
+                "image": "test.png",
+                "translation_id": 10,
+                "units": ["1234567890abcdef"],
+                "timestamp": "2019-11-18T18:58:30.845Z",
+                "user": "nijel",
+            }
+        ],
+    }
+    validate_schema(
+        data,
+        "weblate-component.schema.json",
+    )
+    data["component"]["category"] = "my-category"
+    validate_schema(
+        data,
         "weblate-component.schema.json",
     )
 
