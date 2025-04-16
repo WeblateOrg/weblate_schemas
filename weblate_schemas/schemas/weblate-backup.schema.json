@@ -334,7 +334,7 @@
             },
             "default": [],
             "examples": [
-              ["my-role"]
+              ["Translate", "Billing"]
             ]
           },
           "components": {
@@ -342,11 +342,16 @@
             "title": "Components",
             "type": "array",
             "items": {
-              "title": "Full component slug excluding the project slug",
+              "title": "Full component URL slug excluding the project slug",
               "type": "string"
             },
             "default": [],
-            "examples": []
+            "examples": [
+              [
+                "my-category/my-component",
+                "top-level-component"
+              ]
+            ]
           },
           "language_selection": {
             "$id": "#root/teams/items/language_selection",
@@ -367,7 +372,9 @@
               "type": "string"
             },
             "default": [],
-            "examples": []
+            "examples": [
+              ["en", "ru"]
+            ]
           },
           "admins": {
             "$id": "#root/teams/items/admins",
@@ -377,7 +384,10 @@
               "title": "Username",
               "type": "string"
             },
-            "examples": []
+            "default": [],
+            "examples": [
+              ["admin"]
+            ]
           },
           "enforced_2fa": {
             "$id": "#root/teams/items/enforced_2fa",
@@ -393,7 +403,10 @@
               "title": "Username",
               "type": "string"
             },
-            "examples": []
+            "default": [],
+            "examples": [
+              ["user-1"]
+            ]
           },
           "autogroups": {
             "$id": "#root/teams/items/autogroups",
