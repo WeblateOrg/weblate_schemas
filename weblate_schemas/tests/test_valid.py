@@ -124,46 +124,26 @@ def test_backup():
     backup_with_teams["teams"] = [
         {
             "name": "English Translation Team",
-            "roles": [
-                "Translate"
-            ],
-            "components": [
-                "my-category/test-component",
-                "glossary"
-            ],
+            "roles": ["Translate"],
+            "components": ["my-category/test-component", "glossary"],
             "language_selection": 0,
-            "languages": [
-                "en",
-                "en_CA",
-                "ang",
-                "en_IN",
-                "en_GB"
-            ],
+            "languages": ["en", "en_CA", "ang", "en_IN", "en_GB"],
             "admins": [],
             "enforced_2fa": False,
             "members": [],
-            "autogroups": [
-                "^.*$"
-            ]
+            "autogroups": ["^.*$"],
         },
         {
             "name": "Administration",
-            "roles": [
-                "Administration",
-                "Manage languages"
-            ],
+            "roles": ["Administration", "Manage languages"],
             "components": [],
             "language_selection": 1,
             "languages": [],
             "admins": [],
             "enforced_2fa": True,
-            "members": [
-                "admin"
-            ],
-            "autogroups": [
-                "^$"
-            ]
-        }
+            "members": ["admin"],
+            "autogroups": ["^$"],
+        },
     ]
     validate_schema(
         backup_with_teams,

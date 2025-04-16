@@ -334,7 +334,10 @@
             },
             "default": [],
             "examples": [
-              ["Translate", "Billing"]
+              [
+                "Translate",
+                "Billing"
+              ]
             ]
           },
           "components": {
@@ -373,7 +376,10 @@
             },
             "default": [],
             "examples": [
-              ["en", "ru"]
+              [
+                "en",
+                "ru"
+              ]
             ]
           },
           "admins": {
@@ -386,7 +392,9 @@
             },
             "default": [],
             "examples": [
-              ["admin"]
+              [
+                "admin"
+              ]
             ]
           },
           "enforced_2fa": {
@@ -405,7 +413,9 @@
             },
             "default": [],
             "examples": [
-              ["user-1"]
+              [
+                "user-1"
+              ]
             ]
           },
           "autogroups": {
@@ -417,7 +427,9 @@
               "type": "string"
             },
             "examples": [
-                ["^.*$"]
+              [
+                "^.*$"
+              ]
             ]
           }
         }
