@@ -24,7 +24,7 @@
         },
         "slug": {
           "$id": "#/definitions/category/slug",
-          "title": "URL slug",
+          "title": "Full URL slug excluding the project slug",
           "type": "string",
           "default": "",
           "examples": [

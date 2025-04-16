@@ -86,7 +86,7 @@
         },
         "category": {
           "$id": "#root/component/category",
-          "title": "Category slug",
+          "title": "Full category URL slug excluding the project slug",
           "type": "string",
           "default": "",
           "examples": [
