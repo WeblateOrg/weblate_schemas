@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2025.1
+------
+
+* Released on 16th April 2025.
+* Extended backup schema to cover teams and categories.
+
 2024.2
 ------
 
