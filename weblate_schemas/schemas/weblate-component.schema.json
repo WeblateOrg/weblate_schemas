@@ -90,7 +90,8 @@
           "type": "string",
           "default": "",
           "examples": [
-            "my-category"
+            "my-category",
+            "my-category/my-subcategory"
           ]
         },
         "vcs": {
