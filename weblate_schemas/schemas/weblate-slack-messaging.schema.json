@@ -1,0 +1,61 @@
+{
+  "$id": "https://weblate.org/schemas/weblate-slack-messaging.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Weblate Slack Messaging",
+  "description": "Schema for Webhooks with Slack Messaging, the messages are intended to be sent to a discussion channel.",
+  "additionalProperties": false,
+  "definitions": {
+    "text": {
+      "$id": "#/definitions/text",
+      "title": "Text",
+      "additionalProperties": false,
+      "required": ["type", "text"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["plain_text", "mrkdwn"]
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": ["blocks"],
+  "properties": {
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["header", "section"]
+          },
+          "text": {"$ref": "#/definitions/text"},
+          "accessory": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "button"
+              },
+              "text": {"$ref": "#/definitions/text"},
+              "url": {
+                "type": "string"
+              },
+              "action_id": {
+                "type": "string"
+              }
+            },
+            "required": ["type", "text", "url"]
+          }
+        },
+        "required": ["type", "text"]
+      },
+      "minItems": 2,
+      "uniqueItems": true
+    } 
+  }
+}

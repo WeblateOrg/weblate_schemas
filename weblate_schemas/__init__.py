@@ -26,7 +26,7 @@ def load_schema(name: str):
     return SCHEMA_CACHE[name]
 
 
-def validate_schema(data: dict, name: str):
+def validate_schema(data: object, name: str):
     """Validate data to match schema."""
     # Import this lazily as it is expensive
     from jsonschema import FormatChecker, validate

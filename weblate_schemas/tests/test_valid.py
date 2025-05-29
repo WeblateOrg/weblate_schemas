@@ -455,3 +455,60 @@ def test_weblate_invalid_body() -> None:
         is_invalid = True
 
     assert is_invalid
+
+def test_slack_valid_no_details() -> None:
+    validate_schema(
+        {
+            "blocks": [
+                {
+                    "type": "header",
+                    "text": {"type": "plain_text", "text": "Translation changed"},
+                },
+                {
+                    "type": "section",
+                    "text": {"type": "plain_text", "text": "Project name / Component Name"},
+                    "accessory": {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "View",
+                        },
+                        "url": "https://weblate.org/",
+                        "action_id": "view-button",
+                    },
+                }
+            ]
+        },
+        "weblate-slack-messaging.schema.json"
+    )
+
+
+def test_slack_valid_with_details() -> None:
+    validate_schema(
+        {
+            "blocks": [
+                {
+                    "type": "header",
+                    "text": {"type": "plain_text", "text": "Translation changed"},
+                },
+                {
+                    "type": "section",
+                    "text": {"type": "mrkdwn", "text": "The translation has been changed from 'ref 001' to 'ref 002'"}
+                },
+                {
+                    "type": "section",
+                    "text": {"type": "plain_text", "text": "Project name / Component Name"},
+                    "accessory": {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "View",
+                        },
+                        "url": "https://weblate.org/",
+                        "action_id": "view-button",
+                    },
+                }
+            ]
+        },
+        "weblate-slack-messaging.schema.json"
+    )
