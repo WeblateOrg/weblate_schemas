@@ -9,11 +9,17 @@
       "$id": "#/definitions/text",
       "title": "Text",
       "additionalProperties": false,
-      "required": ["type", "text"],
+      "required": [
+        "type",
+        "text"
+      ],
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["plain_text", "mrkdwn"]
+          "enum": [
+            "plain_text",
+            "mrkdwn"
+          ]
         },
         "text": {
           "type": "string"
@@ -22,7 +28,9 @@
     }
   },
   "type": "object",
-  "required": ["blocks"],
+  "required": [
+    "blocks"
+  ],
   "properties": {
     "blocks": {
       "type": "array",
@@ -31,9 +39,14 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["header", "section"]
+            "enum": [
+              "header",
+              "section"
+            ]
           },
-          "text": {"$ref": "#/definitions/text"},
+          "text": {
+            "$ref": "#/definitions/text"
+          },
           "accessory": {
             "type": "object",
             "properties": {
@@ -41,7 +54,9 @@
                 "type": "string",
                 "const": "button"
               },
-              "text": {"$ref": "#/definitions/text"},
+              "text": {
+                "$ref": "#/definitions/text"
+              },
               "url": {
                 "type": "string"
               },
@@ -49,13 +64,20 @@
                 "type": "string"
               }
             },
-            "required": ["type", "text", "url"]
+            "required": [
+              "type",
+              "text",
+              "url"
+            ]
           }
         },
-        "required": ["type", "text"]
+        "required": [
+          "type",
+          "text"
+        ]
       },
       "minItems": 2,
       "uniqueItems": true
-    } 
+    }
   }
 }

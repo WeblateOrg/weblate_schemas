@@ -456,6 +456,7 @@ def test_weblate_invalid_body() -> None:
 
     assert is_invalid
 
+
 def test_slack_valid_no_details() -> None:
     validate_schema(
         {
@@ -466,7 +467,10 @@ def test_slack_valid_no_details() -> None:
                 },
                 {
                     "type": "section",
-                    "text": {"type": "plain_text", "text": "Project name / Component Name"},
+                    "text": {
+                        "type": "plain_text",
+                        "text": "Project name / Component Name",
+                    },
                     "accessory": {
                         "type": "button",
                         "text": {
@@ -476,10 +480,10 @@ def test_slack_valid_no_details() -> None:
                         "url": "https://weblate.org/",
                         "action_id": "view-button",
                     },
-                }
+                },
             ]
         },
-        "weblate-slack-messaging.schema.json"
+        "weblate-slack-messaging.schema.json",
     )
 
 
@@ -493,11 +497,17 @@ def test_slack_valid_with_details() -> None:
                 },
                 {
                     "type": "section",
-                    "text": {"type": "mrkdwn", "text": "The translation has been changed from 'ref 001' to 'ref 002'"}
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "The translation has been changed from 'ref 001' to 'ref 002'",
+                    },
                 },
                 {
                     "type": "section",
-                    "text": {"type": "plain_text", "text": "Project name / Component Name"},
+                    "text": {
+                        "type": "plain_text",
+                        "text": "Project name / Component Name",
+                    },
                     "accessory": {
                         "type": "button",
                         "text": {
@@ -507,8 +517,8 @@ def test_slack_valid_with_details() -> None:
                         "url": "https://weblate.org/",
                         "action_id": "view-button",
                     },
-                }
+                },
             ]
         },
-        "weblate-slack-messaging.schema.json"
+        "weblate-slack-messaging.schema.json",
     )
