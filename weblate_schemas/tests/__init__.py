@@ -2,4 +2,4 @@
 #
 # SPDX-License-Identifier: MIT
 
-"""Tests for Weblate Fedora Messaging."""
+"""Tests for Weblate Messaging."""
