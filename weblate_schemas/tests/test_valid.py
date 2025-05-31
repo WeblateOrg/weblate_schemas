@@ -417,37 +417,42 @@ invalid_body = {
 
 
 def test_weblate_messaging_merge() -> None:
-    """Test Weblate Fedora Messaging schema to validate a repository merge event."""
+    """Test Weblate Messaging schema to validate a repository merge event."""
     validate_schema(merge_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_new_string() -> None:
-    """Test Weblate Fedora Messaging schema to validate a new source string event."""
+    """Test Weblate Messaging schema to validate a new source string event."""
     validate_schema(new_string_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_resource_update() -> None:
-    """Test Weblate Fedora Messaging schema to validate a resource update event."""
+    """Test Weblate Messaging schema to validate a resource update event."""
     validate_schema(resource_update_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_removal() -> None:
-    """Test Weblate Fedora Messaging schema to validate a project removal event."""
+    """Test Weblate Messaging schema to validate a project removal event."""
     validate_schema(removal_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_new_contributor() -> None:
-    """Test Weblate Fedora Messaging schema to validate a new contributor event."""
+    """Test Weblate Messaging schema to validate a new contributor event."""
     validate_schema(new_contributor_body, "weblate-messaging.schema.json")
 
 
 def test_weblate_messaging_new_translation() -> None:
-    """Test Weblate Fedora Messaging schema to validate a new translation event."""
+    """Test Weblate Messaging schema to validate a new translation event."""
     validate_schema(new_translation_body, "weblate-messaging.schema.json")
 
 
+def test_weblate_messaging_with_category() -> None:
+    body = new_string_body.copy()
+    body["category"] = ["category-1", "subcategory-1"]
+
+
 def test_weblate_invalid_body() -> None:
-    """Test Weblate Fedora Messaging schema to validate an invalid body."""
+    """Test Weblate Messaging schema to validate an invalid body."""
     is_invalid = False
     try:
         validate_schema(invalid_body, "weblate-messaging.schema.json")
