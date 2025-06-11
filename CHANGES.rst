@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2025.2
+------
+* Extended the messaging schema to include "category" field, as a list of category and subcategory slugs.
+
 2025.1
 ------
 
