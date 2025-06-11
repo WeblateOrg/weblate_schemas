@@ -450,6 +450,7 @@ def test_weblate_messaging_with_category() -> None:
     """Test Weblate Messaging schema to validate body with category field."""
     body = new_string_body.copy()
     body["category"] = ["category-1", "subcategory-1"]
+    validate_schema(body, "weblate-messaging.schema.json")
 
 
 def test_weblate_invalid_body() -> None:
