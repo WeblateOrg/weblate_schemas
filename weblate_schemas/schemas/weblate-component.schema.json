@@ -761,6 +761,7 @@
         "title": "Pending unit change data",
         "type": "object",
         "required": [
+          "translation_id",
           "unit_id_hash",
           "author",
           "target",
@@ -772,6 +773,11 @@
         ],
         "additionalProperties": false,
         "properties": {
+          "translation_id": {
+            "$id": "#root/pending_unit_changes/items/translation_id",
+            "title": "",
+            "type": "integer"
+          },
           "unit_id_hash": {
             "$id": "#root/pending_unit_changes/items/unit_id_hash",
             "title": "",
