@@ -775,31 +775,41 @@
             "$id": "#root/pending_unit_changes/items/unit_id_hash",
             "title": "",
             "pattern": "[0-9a-f]{16}",
-            "examples": ["1234567890abcdef"]
+            "examples": [
+              "1234567890abcdef"
+            ]
           },
           "author": {
             "$id": "#root/pending_unit_changes/items/author",
             "title": "",
             "type": "string",
-            "examples": ["weblate"]
+            "examples": [
+              "weblate"
+            ]
           },
           "target": {
             "$id": "#root/pending_unit_changes/items/target",
             "title": "",
             "type": "string",
-            "examples": ["hello"]
+            "examples": [
+              "hello"
+            ]
           },
           "explanation": {
             "$id": "#root/pending_unit_changes/items/explanation",
             "title": "",
             "type": "string",
-            "examples": ["used as a greeting to begin conversation"]
+            "examples": [
+              "used as a greeting to begin conversation"
+            ]
           },
           "state": {
             "$id": "#root/pending_unit_changes/items/state",
             "title": "",
             "type": "integer",
-            "examples": [0]
+            "examples": [
+              0
+            ]
           },
           "timestamp": {
             "$id": "#root/pending_unit_changes/items/timestamp",
@@ -815,7 +825,10 @@
             "title": "",
             "type": "boolean",
             "default": false,
-            "examples": [true, false]
+            "examples": [
+              true,
+              false
+            ]
           }
         }
       }

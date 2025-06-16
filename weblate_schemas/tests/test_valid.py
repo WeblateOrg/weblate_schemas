@@ -361,6 +361,7 @@ def test_component():
         "weblate-component.schema.json",
     )
 
+
 merge_body = {
     "change_id": 1,
     "action": "Merged repository",
