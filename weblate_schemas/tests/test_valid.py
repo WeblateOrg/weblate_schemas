@@ -343,6 +343,7 @@ def test_component():
         "weblate-component.schema.json",
     )
 
+    # Weblate 5.13+ backup with separate model for pending changes
     for unit in data["units"]:
         del unit["pending"]
     data["pending_unit_changes"] = [
