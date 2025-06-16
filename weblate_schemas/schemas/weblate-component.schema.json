@@ -767,7 +767,8 @@
           "explanation",
           "state",
           "timestamp",
-          "add_unit"
+          "add_unit",
+          "source_unit_explanation"
         ],
         "additionalProperties": false,
         "properties": {
@@ -828,6 +829,14 @@
             "examples": [
               true,
               false
+            ]
+          },
+          "source_unit_explanation": {
+            "$id": "#root/pending_unit_changes/items/source_unit_explanation",
+            "title": "",
+            "type": "string",
+            "examples": [
+              "used as a greeting to begin conversation"
             ]
           }
         }

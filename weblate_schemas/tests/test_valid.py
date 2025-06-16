@@ -351,6 +351,7 @@ def test_component():
             "author": "weblate",
             "target": "hello world",
             "explanation": "simple explanation",
+            "source_unit_explanation": "simple source explanation",
             "timestamp": "2019-11-18T18:58:30.845Z",
             "state": 0,
             "add_unit": False,
