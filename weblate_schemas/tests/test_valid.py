@@ -343,6 +343,23 @@ def test_component():
         "weblate-component.schema.json",
     )
 
+    for unit in data["units"]:
+        del unit["pending"]
+    data["pending_unit_changes"] = [
+        {
+            "unit_id_hash": "1234567890abcdef",
+            "author": "weblate",
+            "target": "hello world",
+            "explanation": "simple explanation",
+            "timestamp": "2019-11-18T18:58:30.845Z",
+            "state": 0,
+            "add_unit": False,
+        }
+    ]
+    validate_schema(
+        data,
+        "weblate-component.schema.json",
+    )
 
 merge_body = {
     "change_id": 1,
