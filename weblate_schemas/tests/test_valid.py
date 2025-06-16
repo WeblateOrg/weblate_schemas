@@ -348,6 +348,7 @@ def test_component() -> None:
         del unit["pending"]
     data["pending_unit_changes"] = [
         {
+            "translation_id": 10,
             "unit_id_hash": "1234567890abcdef",
             "author": "weblate",
             "target": "hello world",
