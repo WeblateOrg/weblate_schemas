@@ -70,3 +70,9 @@ def test_weblate_new_translation_message() -> None:
         weblate_message.summary == "New translation event done by testuser occurred "
         "in 2019-10-17T15:57:08.772591+00:00."
     )
+    assert weblate_message.old is None
+    assert weblate_message.agent_name == "testuser"
+    assert (
+        str(weblate_message)
+        == "New translation event done by testuser occurred in 2019-10-17T15:57:08.772591+00:00."
+    )

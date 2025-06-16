@@ -98,6 +98,7 @@ docstring-code-format = true
 [tool.ruff.lint]
 ignore = [
   "D203",  # CONFIG: incompatible with D211
+  "E501",  # CONFIG: using formatter
   "D212"  # CONFIG: incompatible with D213
 ]
 select = [
