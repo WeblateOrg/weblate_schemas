@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2025.4
+------
+
+* Added support for new pending units tracking in backups.
+
 2025.2
 ------
 
