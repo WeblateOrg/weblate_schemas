@@ -31,11 +31,11 @@ def test_memory_newline() -> None:
                 "target_language": "de",
                 "origin": "myproject/mycomponent",
                 "category": 10000004,
+                "status": 1,
             }
         ],
         "weblate-memory.schema.json",
     )
-
 
 def test_userdata() -> None:
     """Test user data schema being valid."""
