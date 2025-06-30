@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2025.5
+------
+
+* Extended the memory to include a "status" field.
+  
 2025.4
 ------
 
