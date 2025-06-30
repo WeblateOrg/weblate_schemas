@@ -37,6 +37,7 @@ def test_memory_newline() -> None:
         "weblate-memory.schema.json",
     )
 
+
 def test_userdata() -> None:
     """Test user data schema being valid."""
     validate_schema(
