@@ -5,7 +5,7 @@ Changelog
 ------
 
 * Extended the memory to include a "context" field.
-  
+
 
 2025.5
 ------
