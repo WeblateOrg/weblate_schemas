@@ -26,6 +26,7 @@ def test_memory_newline() -> None:
         [
             {
                 "source": "Error reading config file {filename!r}:\n{error_msg}",
+                "context": "Greeting used in emails",
                 "target": "Fehler der Konfigurationsdatei {filename!r}:\n{error_msg}",
                 "source_language": "en",
                 "target_language": "de",
@@ -80,7 +81,7 @@ def test_userdata() -> None:
 
 
 def test_backup() -> None:
-    """Test memory schema being valid."""
+    """Test backup schema being valid."""
     backup_without_teams = {
         "metadata": {
             "version": "4.13",
@@ -153,7 +154,7 @@ def test_backup() -> None:
 
 
 def test_backup_blank_url() -> None:
-    """Test memory schema being valid."""
+    """Test backup schema being valid with blank url."""
     validate_schema(
         {
             "metadata": {
@@ -183,7 +184,7 @@ def test_backup_blank_url() -> None:
 
 
 def test_backup_unicode_url() -> None:
-    """Test memory schema being valid."""
+    """Test backup schema being valid with unicode URL."""
     validate_schema(
         {
             "metadata": {
@@ -213,7 +214,7 @@ def test_backup_unicode_url() -> None:
 
 
 def test_component() -> None:
-    """Test memory schema being valid."""
+    """Test component schema being valid."""
     data = {
         "component": {
             "name": "Demo",
