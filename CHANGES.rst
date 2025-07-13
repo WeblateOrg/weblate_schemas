@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2025.6
+------
+
+* Extended the memory to include a "context" field.
+
+
 2025.5
 ------
 
