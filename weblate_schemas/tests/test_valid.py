@@ -38,6 +38,7 @@ def test_memory_newline() -> None:
         "weblate-memory.schema.json",
     )
 
+
 def test_memory_without_optional() -> None:
     """Test memory entry without optional fields."""
     validate_schema(
