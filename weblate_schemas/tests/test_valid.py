@@ -38,6 +38,22 @@ def test_memory_newline() -> None:
         "weblate-memory.schema.json",
     )
 
+def test_memory_without_optional() -> None:
+    """Test memory entry without optional fields."""
+    validate_schema(
+        [
+            {
+                "source": "Error reading config file {filename!r}:\n{error_msg}",
+                "target": "Fehler der Konfigurationsdatei {filename!r}:\n{error_msg}",
+                "source_language": "en",
+                "target_language": "de",
+                "origin": "myproject/mycomponent",
+                "category": 10000004,
+            }
+        ],
+        "weblate-memory.schema.json",
+    )
+
 
 def test_userdata() -> None:
     """Test user data schema being valid."""

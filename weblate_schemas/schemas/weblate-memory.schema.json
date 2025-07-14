@@ -92,8 +92,7 @@
       "source",
       "target",
       "origin",
-      "category",
-      "status"
+      "category"
     ],
     "title": "The Translation Memory Item",
     "type": "object"
