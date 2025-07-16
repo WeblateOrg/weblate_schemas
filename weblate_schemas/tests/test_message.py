@@ -6,6 +6,7 @@
 
 from weblate_schemas.messages import WeblateV1Message
 from weblate_schemas.tests.test_valid import (
+    body_with_context,
     merge_body,
     new_string_body,
     new_translation_body,
@@ -76,3 +77,18 @@ def test_weblate_new_translation_message() -> None:
         str(weblate_message)
         == "New translation event done by testuser occurred in 2019-10-17T15:57:08.772591+00:00."
     )
+
+
+def test_weblate_body_with_context_message() -> None:
+    """Test WeblateV1Message class with a body with a context field."""
+    weblate_message = WeblateV1Message(topic="test.topic", body=body_with_context)
+    assert weblate_message.change_id == body_with_context["change_id"]
+    assert weblate_message.action == body_with_context["action"]
+    assert weblate_message.timestamp == body_with_context["timestamp"]
+    assert weblate_message.url == body_with_context["url"]
+    assert weblate_message.author == body_with_context["author"]
+    assert weblate_message.user == body_with_context["user"]
+    assert weblate_message.project == body_with_context["project"]
+    assert weblate_message.translation == body_with_context["translation"]
+    assert weblate_message.source == body_with_context["source"]
+    assert weblate_message.context == body_with_context["context"]
