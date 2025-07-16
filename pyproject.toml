@@ -22,10 +22,7 @@ classifiers = [
   "Topic :: Utilities"
 ]
 dependencies = [
-  "fqdn>=1.5.1",
-  "jsonschema>=4.23.0",
-  "rfc3987>=1.3.8",
-  "strict-rfc3339>=0.7"
+  "jsonschema[format]>=4.24.0"
 ]
 description = "A collection of JSON schemas used by Weblate"
 keywords = [
