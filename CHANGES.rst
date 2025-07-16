@@ -1,16 +1,12 @@
 Changelog
 =========
 
-2025.6
-------
-
-* Extended the memory to include a "context" field.
-
-
 2025.5
 ------
 
 * Extended the memory to include a "status" field.
+* Extended the memory to include a "context" field.
+* Added `context` field in the messaging schema.
 
 2025.4
 ------

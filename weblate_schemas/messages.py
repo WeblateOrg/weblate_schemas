@@ -114,6 +114,11 @@ class WeblateV1Message(BaseMessage):
         """Return the usernames involved."""
         return sorted({name for name in (self.author, self.user) if name})
 
+    @property
+    def context(self) -> str:
+        """Return the context of the translation."""
+        return self.body.get("context")
+
     def __str__(self) -> str:
         """Return a human-readable representation of the message."""
         return f"{self.summary}"

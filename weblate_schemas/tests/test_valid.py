@@ -455,6 +455,20 @@ invalid_body = {
     "component": "test",
 }
 
+body_with_context = {
+    "change_id": 10,
+    "action": "Contributor joined",
+    "timestamp": "2025-07-15T09:30:14.898792+00:00",
+    "url": "http://example.com/translate/test/test/cs/?checksum=6412684aaf018e8e",
+    "author": "testuser",
+    "user": "testuser",
+    "project": "test",
+    "component": "test",
+    "translation": "cs",
+    "source": ["Hello, world!\n"],
+    "context": "test-context",
+}
+
 
 def test_weblate_messaging_merge() -> None:
     """Test Weblate Messaging schema to validate a repository merge event."""
@@ -502,3 +516,8 @@ def test_weblate_invalid_body() -> None:
         is_invalid = True
 
     assert is_invalid
+
+
+def test_weblate_body_with_context() -> None:
+    """Test Weblate Messaging schema to validate body with a context field."""
+    validate_schema(body_with_context, "weblate-messaging.schema.json")
