@@ -27,6 +27,13 @@ repos:
     - --fix
     - --exit-non-zero-on-fix
   - id: ruff-format
+- repo: https://github.com/adamtheturtle/doccmd-pre-commit
+  rev: v2025.4.8
+  hooks:
+  - id: doccmd
+    args: [--language, python, --no-pad-file, --command, ruff format]
+    additional_dependencies:
+    - ruff==v0.12.3
 - repo: meta
   hooks:
   - id: check-hooks-apply
@@ -44,7 +51,6 @@ repos:
   - id: mdformat
     additional_dependencies:
     - mdformat-gfm==0.4.1
-    - mdformat-ruff==0.1.3
     - mdformat-shfmt==0.2.0
     - mdformat_tables==1.0.0
 - repo: https://github.com/fsfe/reuse-tool
@@ -56,10 +62,6 @@ repos:
   rev: v1.7.7
   hooks:
   - id: actionlint
-- repo: https://github.com/adamchainz/blacken-docs
-  rev: 1.19.1
-  hooks:
-  - id: blacken-docs
 - repo: https://github.com/zizmorcore/zizmor-pre-commit
   rev: v1.11.0
   hooks:
