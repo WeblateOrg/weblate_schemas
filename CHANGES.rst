@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2025.6
+------
+
+* Cleaned up dependencies.
+
 2025.5
 ------
 
