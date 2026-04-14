@@ -115,7 +115,7 @@ def test_backup() -> None:
                     }
                 ],
             }
-        ]
+        ],
     }
     backup_without_teams = base_backup.copy()
 
