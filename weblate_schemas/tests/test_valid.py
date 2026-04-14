@@ -26,7 +26,7 @@ def test_memory_newline() -> None:
         [
             {
                 "source": "Error reading config file {filename!r}:\n{error_msg}",
-                "context": "Greeting used in emails",
+                "context": "Error message shown when reading config file fails",
                 "target": "Fehler der Konfigurationsdatei {filename!r}:\n{error_msg}",
                 "source_language": "en",
                 "target_language": "de",
