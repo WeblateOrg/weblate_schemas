@@ -11,7 +11,7 @@ from weblate_schemas import load_schema, validate_schema
 
 
 def test_validate_manual() -> None:
-    """Test memory schema being valid."""
+    """Test manual memory schema validation using jsonschema.validate directly."""
     validate([], load_schema("weblate-memory.schema.json"))
 
 
@@ -26,7 +26,7 @@ def test_memory_newline() -> None:
         [
             {
                 "source": "Error reading config file {filename!r}:\n{error_msg}",
-                "context": "Greeting used in emails",
+                "context": "Error message shown when reading config file fails",
                 "target": "Fehler der Konfigurationsdatei {filename!r}:\n{error_msg}",
                 "source_language": "en",
                 "target_language": "de",
