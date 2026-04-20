@@ -121,16 +121,6 @@ max-complexity = 16
 [tool.ruff.lint.per-file-ignores]
 "weblate_schemas/tests/**.py" = ["S101"]
 
-[tool.setuptools]
-include-package-data = true
-platforms = [
-  "any"
-]
-zip-safe = false
-
-[tool.setuptools.packages.find]
-namespaces = true
-
 [tool.rumdl]
 disable = [
   # We do not enforce heading
@@ -144,3 +134,13 @@ disable = [
   # Allow HTML
   "MD033"
 ]
+
+[tool.setuptools]
+include-package-data = true
+platforms = [
+  "any"
+]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+namespaces = true
