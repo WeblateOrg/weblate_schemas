@@ -1,10 +1,11 @@
 Changelog
 =========
 
-2026.4
+2026.1
 ------
 
 * The set_language_team field in the project backup schema made optional.
+* Code cleanups.
 
 2025.6
 ------
