@@ -161,7 +161,10 @@ def test_backup() -> None:
             "languages": [],
             "admins": [],
             "enforced_2fa": True,
-            "members": ["admin"],
+            "members": [
+                "admin",
+                {"username": "reviewer-cs", "limit_languages": ["cs"]},
+            ],
             "autogroups": ["^$"],
         },
     ]
