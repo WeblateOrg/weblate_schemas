@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.2
+------
+
+* Added support for team membership language filters in backups.
+
 2026.1
 ------
 
