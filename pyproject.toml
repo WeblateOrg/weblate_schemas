@@ -50,7 +50,7 @@ dev = [
   "weblate_schemas[lint,test]"
 ]
 lint = [
-  "prek==0.4.0"
+  "prek==0.4.1"
 ]
 test = [
   "pytest",
