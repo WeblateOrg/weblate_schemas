@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.4
+------
+
+* Fixed version in the published package.
+
 2026.3
 ------
 
