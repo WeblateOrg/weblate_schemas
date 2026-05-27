@@ -124,10 +124,34 @@ def test_backup() -> None:
             {
                 "name": "My category",
                 "slug": "my-category",
+                "check_flags": "xml-text",
+                "license": "MIT",
+                "agreement": "Category agreement",
+                "new_lang": "add",
+                "language_code_style": "posix",
+                "secondary_language": None,
+                "commit_message": "Category commit message",
+                "add_message": "Category add message",
+                "delete_message": "Category delete message",
+                "merge_message": "Category merge message",
+                "addon_message": "Category add-on message",
+                "pull_message": "Category pull message",
+                "inherit_license": True,
+                "inherit_agreement": True,
+                "inherit_new_lang": True,
+                "inherit_language_code_style": True,
+                "inherit_secondary_language": True,
+                "inherit_commit_message": True,
+                "inherit_add_message": True,
+                "inherit_delete_message": True,
+                "inherit_merge_message": True,
+                "inherit_addon_message": True,
+                "inherit_pull_message": True,
                 "categories": [
                     {
                         "name": "My Subcategory",
                         "slug": "my-subcategory",
+                        "secondary_language": "de",
                         "categories": [],
                     }
                 ],
@@ -170,6 +194,40 @@ def test_backup() -> None:
     ]
     validate_schema(
         backup_with_teams,
+        "weblate-backup.schema.json",
+    )
+
+    backup_with_inherited_settings = {
+        **base_backup,
+        "project": {
+            **base_backup["project"],
+            "check_flags": "safe-html, strict-same",
+            "license": "MIT",
+            "agreement": "Contributor agreement",
+            "new_lang": "add",
+            "language_code_style": "posix",
+            "secondary_language": "de",
+            "commit_message": "Commit message",
+            "add_message": "Add message",
+            "delete_message": "Delete message",
+            "merge_message": "Merge message",
+            "addon_message": "Add-on message",
+            "pull_message": "Pull message",
+            "inherit_license": True,
+            "inherit_agreement": True,
+            "inherit_new_lang": True,
+            "inherit_language_code_style": True,
+            "inherit_secondary_language": True,
+            "inherit_commit_message": True,
+            "inherit_add_message": True,
+            "inherit_delete_message": True,
+            "inherit_merge_message": True,
+            "inherit_addon_message": True,
+            "inherit_pull_message": True,
+        },
+    }
+    validate_schema(
+        backup_with_inherited_settings,
         "weblate-backup.schema.json",
     )
 
@@ -363,6 +421,31 @@ def test_component() -> None:
             }
         ],
     }
+    validate_schema(
+        data,
+        "weblate-component.schema.json",
+    )
+    data["component"].update(
+        {
+            "secondary_language": None,
+            "inherit_license": True,
+            "inherit_agreement": True,
+            "inherit_new_lang": True,
+            "inherit_language_code_style": True,
+            "inherit_secondary_language": True,
+            "inherit_commit_message": True,
+            "inherit_add_message": True,
+            "inherit_delete_message": True,
+            "inherit_merge_message": True,
+            "inherit_addon_message": True,
+            "inherit_pull_message": True,
+        }
+    )
+    validate_schema(
+        data,
+        "weblate-component.schema.json",
+    )
+    data["component"]["secondary_language"] = "de"
     validate_schema(
         data,
         "weblate-component.schema.json",

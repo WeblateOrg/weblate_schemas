@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.3
+------
+
+* Added support for inherited settings in project backups.
+
 2026.2
 ------
 
