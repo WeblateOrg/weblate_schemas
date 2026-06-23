@@ -39,8 +39,8 @@ class WeblateV1Message(BaseMessage):
         self.body_schema = load_schema("weblate-messaging.schema.json")
 
     @property
-    def agent_name(self) -> str:
-        """The username who cause the action."""
+    def agent_name(self) -> str | None:
+        """The username who caused the action."""
         return self.body.get("user")
 
     @property
