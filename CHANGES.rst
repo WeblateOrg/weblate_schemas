@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.5
+------
+
+* Added optional workspace translation-memory flags to project backups.
+
 2026.4
 ------
 

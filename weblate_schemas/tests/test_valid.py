@@ -113,6 +113,8 @@ def test_backup() -> None:
             "instructions": "",
             "use_shared_tm": False,
             "contribute_shared_tm": False,
+            "use_workspace_tm": True,
+            "contribute_workspace_tm": True,
             "access_control": 0,
             "translation_review": False,
             "source_review": False,
