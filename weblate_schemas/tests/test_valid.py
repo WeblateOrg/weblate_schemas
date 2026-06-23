@@ -4,6 +4,8 @@
 
 """Test schemas are valid."""
 
+import copy
+
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
@@ -598,7 +600,7 @@ def test_weblate_messaging_new_translation() -> None:
 
 def test_weblate_messaging_with_category() -> None:
     """Test Weblate Messaging schema to validate body with category field."""
-    body = new_string_body.copy()
+    body = copy.deepcopy(new_string_body)
     body["category"] = ["category-1", "subcategory-1"]
     validate_schema(body, "weblate-messaging.schema.json")
 
