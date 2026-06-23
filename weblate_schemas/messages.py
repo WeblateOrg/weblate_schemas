@@ -21,12 +21,12 @@ class BaseMessage(message.Message):
 
     @property
     def app_name(self) -> str:
-        """Return the app name."""
+        """Application name."""
         return "Weblate"
 
     @property
     def app_icon(self) -> str:
-        """Return the App icon URL."""
+        """Application icon URL."""
         return "https://weblate.org/static/weblate-128.png"
 
 
@@ -45,78 +45,78 @@ class WeblateV1Message(BaseMessage):
 
     @property
     def change_id(self) -> int:
-        """Return the change ID."""
+        """Change ID."""
         return self.body["change_id"]
 
     @property
     def action(self) -> str:
-        """Return the change verbose name."""
+        """Change verbose name."""
         return self.body["action"]
 
     @property
     def timestamp(self) -> datetime:
-        """Return the timestamp of the change."""
+        """Timestamp of the change."""
         return self.body["timestamp"]
 
     @property
     def target(self) -> str | list[str]:
-        """Return the new value of the change."""
+        """New value of the change."""
         return self.body.get("target")
 
     @property
     def old(self) -> str | list[str]:
-        """Return the old value of the change."""
+        """Old value of the change."""
         return self.body.get("old")
 
     @property
     def source(self) -> str | list[str]:
-        """Return the source string."""
+        """Source string."""
         return self.body.get("source")
 
     @property
     def url(self) -> str:
-        """Return the URL to the related object."""
+        """URL to the related object."""
         return self.body.get("url")
 
     @property
     def author(self) -> str:
-        """Return the author username."""
+        """Author username."""
         return self.body.get("author")
 
     @property
     def user(self) -> str:
-        """Return the acting username."""
+        """Acting username."""
         return self.body.get("user")
 
     @property
     def project(self) -> str:
-        """Return the project slug."""
+        """Project slug."""
         return self.body.get("project")
 
     @property
     def component(self) -> str:
-        """Return the component slug."""
+        """Component slug."""
         return self.body.get("component")
 
     @property
     def translation(self) -> str:
-        """Return the translation language code."""
+        """Translation language code."""
         return self.body.get("translation")
 
     @property
     def summary(self) -> str:
-        """Return the message summary."""
+        """Message summary."""
         user = f" done by {self.user}" if self.user else ""
         return f"{self.action} event{user} occurred in {self.timestamp}."
 
     @property
     def usernames(self) -> list[str]:
-        """Return the usernames involved."""
+        """Usernames involved."""
         return sorted({name for name in (self.author, self.user) if name})
 
     @property
     def context(self) -> str:
-        """Return the context of the translation."""
+        """Context of the translation."""
         return self.body.get("context")
 
     def __str__(self) -> str:
