@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.6
+------
+
+* Added the wide tables preference to the user data schema.
+
 2026.5
 ------
 
