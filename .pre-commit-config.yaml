@@ -33,6 +33,7 @@ repos:
     args: [--language, python, --no-pad-file, --command, ruff format]
     additional_dependencies:
     - ruff==0.16.1
+    language: python
 - repo: meta
   hooks:
   - id: check-hooks-apply
