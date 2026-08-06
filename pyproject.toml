@@ -4,6 +4,25 @@ requires = [
   "setuptools>=78.0.2"
 ]
 
+[dependency-groups]
+dev = [
+  {include-group = "lint"},
+  {include-group = "test"}
+]
+lint = [
+  {include-group = "pre-commit"}
+]
+pre-commit = [
+  "prek==0.4.11"
+]
+test = [
+  "pytest-cov==7.1.0",
+  "pytest-github-actions-annotate-failures==0.4.2",
+  "pytest==9.1.1",
+  "fedora-messaging",
+  "jsonschema[format]"
+]
+
 [project]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
@@ -45,20 +64,6 @@ name = "Michal Čihař"
 [project.entry-points."fedora.messages"]
 "weblate.message.v1" = "weblate_schemas.messages:WeblateV1Message"
 
-[project.optional-dependencies]
-dev = [
-  "weblate_schemas[lint,test]"
-]
-lint = [
-  "prek==0.4.11"
-]
-test = [
-  "pytest",
-  "pytest-cov",
-  "fedora-messaging",
-  "jsonschema[format]"
-]
-
 [project.readme]
 content-type = "text/x-rst"
 file = "README.rst"
@@ -88,6 +93,9 @@ ignore = [
 
 [tool.isort]
 profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "--cov"
 
 [tool.ruff.format]
 docstring-code-format = true
