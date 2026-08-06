@@ -31,13 +31,11 @@ jobs:
         cache-suffix: ${{ matrix.python-version }}
         version: 0.12.1
     - name: Install pip dependencies
-      run: uv pip install --system -e .[dev]
+      run: uv sync --dev
     - name: Test
-      run: |
-        py.test --cov=weblate_schemas weblate_schemas
+      run: uv run --no-sync pytest
     - name: Coverage
-      run: |
-        coverage xml
+      run: uv run --no-sync coverage xml
     - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
       with:
         token: ${{secrets.CODECOV_TOKEN}} # zizmor: ignore[secrets-outside-env]
