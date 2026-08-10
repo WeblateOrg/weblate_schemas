@@ -76,6 +76,7 @@ def test_userdata() -> None:
                 "hide_completed": False,
                 "secondary_in_zen": True,
                 "hide_source_secondary": False,
+                "listing_columns": ["total", "untranslated", "checks"],
                 "editor_link": "",
                 "translate_mode": 0,
                 "zen_mode": 0,
