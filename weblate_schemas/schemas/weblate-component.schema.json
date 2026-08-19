@@ -99,6 +99,44 @@
           "title": "Version control system",
           "type": "string"
         },
+        "vcs_params": {
+          "$id": "#root/component/vcs_params",
+          "title": "Version control parameters",
+          "type": "object",
+          "additionalProperties": false,
+          "default": {},
+          "properties": {
+            "git_force_push": {
+              "$id": "#root/component/vcs_params/git_force_push",
+              "title": "Force push",
+              "type": "boolean",
+              "default": false
+            },
+            "create_merge_request": {
+              "$id": "#root/component/vcs_params/create_merge_request",
+              "title": "Create merge requests",
+              "type": "boolean",
+              "default": true
+            },
+            "merge_request_automerge": {
+              "$id": "#root/component/vcs_params/merge_request_automerge",
+              "title": "Merge pull requests automatically",
+              "type": "boolean",
+              "default": false
+            },
+            "merge_request_merge_method": {
+              "$id": "#root/component/vcs_params/merge_request_merge_method",
+              "title": "Merge method",
+              "type": "string",
+              "enum": [
+                "merge",
+                "squash",
+                "rebase"
+              ],
+              "default": "merge"
+            }
+          }
+        },
         "repo": {
           "$id": "#root/component/repo",
           "title": "Source code repository",
