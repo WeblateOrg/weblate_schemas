@@ -310,6 +310,12 @@
           "type": "boolean",
           "default": false
         },
+        "inherit_enforced_checks": {
+          "$id": "#root/component/inherit_enforced_checks",
+          "title": "Inherit enforced checks",
+          "type": "boolean",
+          "default": false
+        },
         "inherit_commit_message": {
           "$id": "#root/component/inherit_commit_message",
           "title": "Inherit commit message when translating",
