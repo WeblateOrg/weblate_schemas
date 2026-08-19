@@ -430,6 +430,11 @@ def test_component() -> None:
         data,
         "weblate-component.schema.json",
     )
+    data["component"]["vcs_params"] = {"git_force_push": True}
+    validate_schema(
+        data,
+        "weblate-component.schema.json",
+    )
     data["component"].update(
         {
             "secondary_language": None,
