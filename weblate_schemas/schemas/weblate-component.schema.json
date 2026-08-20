@@ -182,6 +182,12 @@
           "title": "File mask",
           "type": "string"
         },
+        "screenshot_filemask": {
+          "$id": "#root/component/screenshot_filemask",
+          "title": "Screenshot file mask",
+          "type": "string",
+          "default": ""
+        },
         "template": {
           "$id": "#root/component/template",
           "title": "Monolingual base language file",
@@ -207,15 +213,40 @@
           "title": "File format",
           "type": "string"
         },
+        "file_format_params": {
+          "$id": "#root/component/file_format_params",
+          "title": "File format parameters",
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "integer",
+              "boolean"
+            ]
+          },
+          "default": {}
+        },
         "locked": {
           "$id": "#root/component/locked",
           "title": "Locked",
           "type": "boolean"
         },
+        "hide_glossary_matches": {
+          "$id": "#root/component/hide_glossary_matches",
+          "title": "Do not show glossary matches",
+          "type": "boolean",
+          "default": false
+        },
         "allow_translation_propagation": {
           "$id": "#root/component/allow_translation_propagation",
           "title": "Allow translation propagation",
           "type": "boolean"
+        },
+        "contribute_project_tm": {
+          "$id": "#root/component/contribute_project_tm",
+          "title": "Contribute to project translation memory",
+          "type": "boolean",
+          "default": true
         },
         "enable_suggestions": {
           "$id": "#root/component/enable_suggestions",
@@ -421,6 +452,12 @@
           "$id": "#root/component/language_regex",
           "title": "Language filter",
           "type": "string"
+        },
+        "key_filter": {
+          "$id": "#root/component/key_filter",
+          "title": "Key filter",
+          "type": "string",
+          "default": ""
         },
         "variant_regex": {
           "$id": "#root/component/variant_regex",
