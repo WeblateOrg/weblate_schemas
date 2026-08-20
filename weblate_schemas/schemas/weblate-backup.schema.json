@@ -383,6 +383,12 @@
           "type": "boolean",
           "default": false
         },
+        "autoclean_tm": {
+          "$id": "#root/project/autoclean_tm",
+          "title": "Autoclean translation memory",
+          "type": "boolean",
+          "default": false
+        },
         "translation_review": {
           "$id": "#root/project/translation_review",
           "title": "Enable reviews",
@@ -394,6 +400,23 @@
           "title": "Enable source reviews",
           "type": "boolean",
           "default": false
+        },
+        "enforced_2fa": {
+          "$id": "#root/project/enforced_2fa",
+          "title": "Enforced two-factor authentication",
+          "type": "boolean",
+          "default": false
+        },
+        "commit_policy": {
+          "$id": "#root/project/commit_policy",
+          "title": "Translation quality filter",
+          "type": "integer",
+          "enum": [
+            0,
+            20,
+            30
+          ],
+          "default": 0
         },
         "enable_hooks": {
           "$id": "#root/project/enable_hooks",

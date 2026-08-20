@@ -119,9 +119,12 @@ def test_backup() -> None:
             "contribute_shared_tm": False,
             "use_workspace_tm": True,
             "contribute_workspace_tm": True,
+            "autoclean_tm": True,
             "access_control": 0,
+            "enforced_2fa": True,
             "translation_review": False,
             "source_review": False,
+            "commit_policy": 20,
             "enable_hooks": False,
             "language_aliases": "",
         },
@@ -256,6 +259,20 @@ def test_backup() -> None:
             invalid_inheritance,
             "weblate-backup.schema.json",
         )
+    invalid_commit_policy = copy.deepcopy(base_backup)
+    invalid_commit_policy["project"]["commit_policy"] = 10
+    with pytest.raises(ValidationError):
+        validate_schema(
+            invalid_commit_policy,
+            "weblate-backup.schema.json",
+        )
+    invalid_autoclean_tm = copy.deepcopy(base_backup)
+    invalid_autoclean_tm["project"]["autoclean_tm"] = "yes"
+    with pytest.raises(ValidationError):
+        validate_schema(
+            invalid_autoclean_tm,
+            "weblate-backup.schema.json",
+        )
 
     backup_with_set_language_team = base_backup.copy()
     backup_with_set_language_team["project"]["set_language_team"] = True
@@ -339,13 +356,17 @@ def test_component() -> None:
             "branch": "main",
             "push_branch": "",
             "filemask": "po/*.po",
+            "screenshot_filemask": "screenshots/*.png",
             "template": "",
             "edit_template": False,
             "intermediate": "",
             "new_base": "",
             "file_format": "po",
+            "file_format_params": {"po_line_wrap": 65535},
             "locked": False,
+            "hide_glossary_matches": True,
             "allow_translation_propagation": True,
+            "contribute_project_tm": False,
             "enable_suggestions": True,
             "suggestion_voting": True,
             "suggestion_autoaccept": 2,
@@ -368,6 +389,7 @@ def test_component() -> None:
             "auto_lock_error": False,
             "source_language": "en",
             "language_regex": "^[^.]+$",
+            "key_filter": "^keep",
             "variant_regex": "",
             "priority": 100,
             "restricted": False,
@@ -482,6 +504,22 @@ def test_component() -> None:
     with pytest.raises(ValidationError):
         validate_schema(
             invalid_inheritance,
+            "weblate-component.schema.json",
+        )
+    invalid_file_format_params = copy.deepcopy(data)
+    invalid_file_format_params["component"]["file_format_params"] = {
+        "po_line_wrap": None
+    }
+    with pytest.raises(ValidationError):
+        validate_schema(
+            invalid_file_format_params,
+            "weblate-component.schema.json",
+        )
+    invalid_key_filter = copy.deepcopy(data)
+    invalid_key_filter["component"]["key_filter"] = False
+    with pytest.raises(ValidationError):
+        validate_schema(
+            invalid_key_filter,
             "weblate-component.schema.json",
         )
     data["component"]["secondary_language"] = "de"
