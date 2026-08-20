@@ -1,6 +1,14 @@
 Changelog
 =========
 
+2026.7
+------
+
+* Added the visible listing columns preference to the user data schema.
+* Added VCS parameters to component backups.
+* Added support for inherited enforced checks in backups.
+* Extended backup schemas to cover missing project and component settings.
+
 2026.6
 ------
 
