@@ -111,14 +111,14 @@ extend-safe-fixes = [
   "UP"
 ]
 ignore = [
-  "COM",  # CONFIG: No trailing commas
+  "COM", # CONFIG: No trailing commas
   "CPY001",
-  "D203",  # CONFIG: incompatible with D211
-  "D206",  # CONFIG: formatter
-  "E501",  # CONFIG: using formatter
-  "D212",  # CONFIG: incompatible with D213
-  "ANN003",  # Missing type annotation for `**kwargs`
-  "DOC"  # TODO: Ignore all pydoclint rules for now
+  "D203", # CONFIG: incompatible with D211
+  "D206", # CONFIG: formatter
+  "E501", # CONFIG: using formatter
+  "D212", # CONFIG: incompatible with D213
+  "ANN003", # Missing type annotation for `**kwargs`
+  "DOC" # TODO: Ignore all pydoclint rules for now
 ]
 preview = true
 select = ["ALL"]
