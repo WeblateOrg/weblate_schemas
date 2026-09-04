@@ -59,7 +59,7 @@ license = "MIT"
 license-files = ["LICENSE"]
 name = "weblate_schemas"
 requires-python = ">=3.10"
-version = "2026.7"
+version = "2026.8"
 
 [[project.authors]]
 email = "michal@weblate.org"
