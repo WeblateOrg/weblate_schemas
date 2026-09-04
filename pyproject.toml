@@ -104,7 +104,7 @@ docstring-code-format = true
 extend-safe-fixes = [
   "ANN",
   "D",
-  "FA102",
+  "future-required-type-annotation",
   "FLY",
   "SIM",
   "TCH",
@@ -112,12 +112,12 @@ extend-safe-fixes = [
 ]
 ignore = [
   "COM", # CONFIG: No trailing commas
-  "CPY001",
-  "D203", # CONFIG: incompatible with D211
-  "D206", # CONFIG: formatter
-  "E501", # CONFIG: using formatter
-  "D212", # CONFIG: incompatible with D213
-  "ANN003", # Missing type annotation for `**kwargs`
+  "missing-copyright-notice",
+  "incorrect-blank-line-before-class", # CONFIG: incompatible with D211
+  "docstring-tab-indentation", # CONFIG: formatter
+  "line-too-long", # CONFIG: using formatter
+  "multi-line-summary-first-line", # CONFIG: incompatible with D213
+  "missing-type-kwargs", # Missing type annotation for `**kwargs`
   "DOC" # TODO: Ignore all pydoclint rules for now
 ]
 preview = true
@@ -127,7 +127,7 @@ select = ["ALL"]
 max-complexity = 16
 
 [tool.ruff.lint.per-file-ignores]
-"weblate_schemas/tests/**.py" = ["S101"]
+"weblate_schemas/tests/**.py" = ["assert"]
 
 [tool.rumdl]
 disable = [
