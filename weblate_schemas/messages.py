@@ -15,6 +15,8 @@ from . import load_schema
 if TYPE_CHECKING:
     from datetime import datetime
 
+    from pika import BasicProperties
+
 
 class BaseMessage(message.Message):
     """Inherit the Message class from fedora_messaging."""
@@ -33,9 +35,22 @@ class BaseMessage(message.Message):
 class WeblateV1Message(BaseMessage):
     """Actual Weblate message class which uses the Messaging schema."""
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(
+        self,
+        body: dict[str, object] | None = None,
+        headers: dict[str, object] | None = None,
+        topic: str | None = None,
+        properties: BasicProperties | None = None,
+        severity: int | None = None,
+    ) -> None:
         """Initialize the WeblateMessage class with loading of the body_schema."""
-        super().__init__(**kwargs)
+        super().__init__(
+            body=body,
+            headers=headers,
+            topic=topic,
+            properties=properties,
+            severity=severity,
+        )
         self.body_schema = load_schema("weblate-messaging.schema.json")
 
     @property
