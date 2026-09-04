@@ -121,6 +121,7 @@ def test_backup() -> None:
             "contribute_workspace_tm": True,
             "autoclean_tm": True,
             "access_control": 0,
+            "public_sharing": False,
             "enforced_2fa": True,
             "translation_review": False,
             "source_review": False,
