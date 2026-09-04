@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2026.8
+------
+
+* Added the public sharing setting to project backups.
+* Added type annotations to the messaging API.
+
 2026.7
 ------
 
