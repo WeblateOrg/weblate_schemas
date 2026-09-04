@@ -5,12 +5,15 @@
 """Test schemas are valid."""
 
 import copy
+from typing import Any, TypeAlias
 
 import pytest
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 from weblate_schemas import load_schema, validate_schema
+
+JSONData: TypeAlias = dict[str, Any]
 
 
 def test_validate_manual() -> None:
@@ -103,7 +106,7 @@ def test_userdata() -> None:
 
 def test_backup() -> None:
     """Test backup schema being valid."""
-    base_backup = {
+    base_backup: JSONData = {
         "metadata": {
             "version": "4.13",
             "server": "Weblate",
@@ -211,7 +214,7 @@ def test_backup() -> None:
         "weblate-backup.schema.json",
     )
 
-    backup_with_inherited_settings = {
+    backup_with_inherited_settings: JSONData = {
         **base_backup,
         "project": {
             **base_backup["project"],
@@ -345,7 +348,7 @@ def test_backup_unicode_url() -> None:
 
 def test_component() -> None:
     """Test component schema being valid."""
-    data = {
+    data: JSONData = {
         "component": {
             "name": "Demo",
             "slug": "demo",
@@ -470,16 +473,17 @@ def test_component() -> None:
             }
         ],
     }
+    component: JSONData = data["component"]
     validate_schema(
         data,
         "weblate-component.schema.json",
     )
-    data["component"]["vcs_params"] = {"git_force_push": True}
+    component["vcs_params"] = {"git_force_push": True}
     validate_schema(
         data,
         "weblate-component.schema.json",
     )
-    data["component"].update(
+    component.update(
         {
             "secondary_language": None,
             "inherit_license": True,
@@ -523,12 +527,12 @@ def test_component() -> None:
             invalid_key_filter,
             "weblate-component.schema.json",
         )
-    data["component"]["secondary_language"] = "de"
+    component["secondary_language"] = "de"
     validate_schema(
         data,
         "weblate-component.schema.json",
     )
-    data["component"]["category"] = "my-category"
+    component["category"] = "my-category"
     validate_schema(
         data,
         "weblate-component.schema.json",

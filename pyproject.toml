@@ -7,7 +7,8 @@ requires = [
 [dependency-groups]
 dev = [
   {include-group = "lint"},
-  {include-group = "test"}
+  {include-group = "test"},
+  {include-group = "types"}
 ]
 lint = [
   {include-group = "pre-commit"}
@@ -19,8 +20,11 @@ test = [
   "pytest-cov==7.1.0",
   "pytest-github-actions-annotate-failures==0.4.2",
   "pytest==9.1.1",
-  "fedora-messaging",
+  "fedora-messaging>=3.9.1",
   "jsonschema[format]"
+]
+types = [
+  "ty==0.0.78"
 ]
 
 [project]
@@ -151,3 +155,6 @@ zip-safe = false
 
 [tool.setuptools.packages.find]
 namespaces = true
+
+[tool.ty.src]
+include = ["weblate_schemas"]
