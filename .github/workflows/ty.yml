@@ -29,6 +29,6 @@ jobs:
     - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
       with:
         cache-suffix: ${{ steps.setup_python.outputs.python-version }}
-        version: 0.12.10
+        version: 0.12.13
     - name: Type check ty
       run: uv run --all-extras ty check --output-format=github
