@@ -478,6 +478,13 @@ def test_component() -> None:
         data,
         "weblate-component.schema.json",
     )
+    component["repoweb_translations"] = (
+        "https://example.com/translations/{{filename}}#L{{line}}"
+    )
+    validate_schema(
+        data,
+        "weblate-component.schema.json",
+    )
     component["vcs_params"] = {"git_force_push": True}
     validate_schema(
         data,
