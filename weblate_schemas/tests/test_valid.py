@@ -16,6 +16,73 @@ from weblate_schemas import load_schema, validate_schema
 JSONData: TypeAlias = dict[str, Any]
 
 
+def test_kotlin_sdk_build() -> None:
+    """Validate build metadata and reject malformed resource mappings."""
+    data = {
+        "packageName": "org.weblate.sample",
+        "versionCode": 1,
+        "strings": {"hello": "0x7f090003"},
+        "plurals": {"count": "0x7f080004"},
+    }
+    validate_schema(data, "weblate-kotlin-sdk-build.schema.json")
+    validate_schema(
+        {
+            "packageName": data["packageName"],
+            "versionCode": 1,
+            "plurals": data["plurals"],
+        },
+        "weblate-kotlin-sdk-build.schema.json",
+    )
+    for change in (
+        {"schemaVersion": 2},
+        {"packageName": "org.weblate.sample\n"},
+        {"versionCode": 0},
+        {"strings": {}, "plurals": {}},
+        {"strings": {"../bad": "0x7f090003"}},
+        {"strings": {"hello": "0x7f000003"}},
+        {"strings": {"hello": "0x7f090003\n"}},
+        {"unknown": True},
+    ):
+        with pytest.raises(ValidationError):
+            validate_schema(data | change, "weblate-kotlin-sdk-build.schema.json")
+
+
+def test_kotlin_sdk_manifest() -> None:
+    """Validate published manifest structure and artifact descriptors."""
+    digest = "a" * 64
+    data = {
+        "schemaVersion": 1,
+        "packageName": "org.weblate.sample",
+        "versionCode": 1,
+        "locales": {
+            "fr": {
+                "url": f"../../artifacts/{digest}.arsc",
+                "sha256": digest,
+                "size": 123,
+            }
+        },
+    }
+    validate_schema(data, "weblate-kotlin-sdk-manifest.schema.json")
+    validate_schema(data | {"locales": {}}, "weblate-kotlin-sdk-manifest.schema.json")
+    for change in (
+        {"schemaVersion": 2},
+        {"packageName": "org.weblate.sample\n"},
+        {"locales": {"fr": data["locales"]["fr"] | {"size": 0}}},
+        {"locales": {"fr": data["locales"]["fr"] | {"sha256": "bad"}}},
+        {"locales": {"fr": data["locales"]["fr"] | {"sha256": digest + "\n"}}},
+        {"locales": {"fr": data["locales"]["fr"] | {"url": "/bad"}}},
+        {
+            "locales": {
+                "fr": data["locales"]["fr"]
+                | {"url": data["locales"]["fr"]["url"] + "\n"}
+            }
+        },
+        {"unknown": True},
+    ):
+        with pytest.raises(ValidationError):
+            validate_schema(data | change, "weblate-kotlin-sdk-manifest.schema.json")
+
+
 def test_validate_manual() -> None:
     """Test manual memory schema validation using jsonschema.validate directly."""
     validate([], load_schema("weblate-memory.schema.json"))
