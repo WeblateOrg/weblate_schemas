@@ -6,7 +6,11 @@
 **Weblate is libre software web-based continuous localization system,
 used by over 2500 libre projects and companies in more than 165 countries.**
 
-This module contains schemas used in Weblate exports.
+This module contains schemas used in Weblate exports and Kotlin SDK build
+registration and CDN manifests. Load them with ``weblate_schemas.load_schema``
+or validate data with ``weblate_schemas.validate_schema``. The Kotlin SDK files
+are ``weblate-kotlin-sdk-build.schema.json`` and
+``weblate-kotlin-sdk-manifest.schema.json``.
 
 .. image:: https://img.shields.io/badge/website-weblate.org-blue.svg
     :alt: Website

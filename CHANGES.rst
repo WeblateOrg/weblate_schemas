@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.9
+------
+
+* Added schemas for Kotlin SDK build registration and CDN manifests.
+
 2026.8
 ------
 
