@@ -5,6 +5,7 @@ Changelog
 ------
 
 * Added schemas for Kotlin SDK build registration and CDN manifests.
+* Added the translation repository browser field to component backups.
 
 2026.8
 ------
