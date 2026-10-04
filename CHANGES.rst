@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2026.10
+-------
+
+* Added the push on update setting to component backups.
+* Added built-in team tracking to project backups.
+
 2026.9
 ------
 
