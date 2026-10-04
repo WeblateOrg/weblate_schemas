@@ -154,6 +154,7 @@ platforms = [
 zip-safe = false
 
 [tool.setuptools.packages.find]
+include = ["weblate_schemas*"]
 namespaces = true
 
 [tool.ty.src]
