@@ -281,6 +281,17 @@ def test_backup() -> None:
         "weblate-backup.schema.json",
     )
 
+    for internal in (False, True):
+        typed_backup = copy.deepcopy(backup_with_teams)
+        typed_backup["teams"][0]["internal"] = internal
+        validate_schema(typed_backup, "weblate-backup.schema.json")
+
+    for internal in ("true", 0, None, []):
+        invalid_backup = copy.deepcopy(backup_with_teams)
+        invalid_backup["teams"][0]["internal"] = internal
+        with pytest.raises(ValidationError):
+            validate_schema(invalid_backup, "weblate-backup.schema.json")
+
     backup_with_inherited_settings: JSONData = {
         **base_backup,
         "project": {
