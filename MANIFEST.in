@@ -3,4 +3,5 @@ include *.rst
 include *.md
 include weblate_schemas/*.py
 recursive-include weblate_schemas/schemas *
+prune scripts
 global-exclude *.swp *.swo
