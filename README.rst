@@ -23,7 +23,7 @@ Weblate schemas
 
 This module contains schemas used in Weblate exports and Kotlin SDK build
 registration and CDN manifests. Load them with ``weblate_schemas.load_schema``
-or validate data with ``weblate_schemas.validate_schema``. 
+or validate data with ``weblate_schemas.validate_schema``.
 
 .. image:: https://s.weblate.org/cdn/Logo-Darktext-borders.png
    :target: https://weblate.org/
