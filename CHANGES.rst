@@ -5,6 +5,7 @@ Changelog
 -------
 
 * Expanded user-data exports for portable account settings, public profiles, and all notification settings using portable project and component paths.
+* Added support for Python 3.15.
 
 2026.10
 -------
