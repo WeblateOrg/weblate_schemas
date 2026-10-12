@@ -158,6 +158,24 @@ def test_userdata() -> None:
                 "secondary_languages": ["sk"],
                 "watched": ["weblate"],
             },
+            "notifications": [
+                {
+                    "notification": "new-string",
+                    "scope": 30,
+                    "frequency": 1,
+                    "project": "weblate",
+                    "component": None,
+                    "onetime": True,
+                },
+                {
+                    "notification": "new-string",
+                    "scope": 40,
+                    "frequency": 1,
+                    "project": None,
+                    "component": "weblate/application",
+                    "onetime": False,
+                },
+            ],
             "auditlog": [
                 {
                     "address": "127.0.0.1",
