@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.12
+-------
+
+* Added saved searches to project backups and user-data exports.
+
 2026.11
 -------
 
