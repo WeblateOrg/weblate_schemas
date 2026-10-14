@@ -499,7 +499,7 @@
       "title": "User saved searches",
       "type": "array",
       "items": {
-        "type": "object", 
+        "type": "object",
         "additionalProperties": false,
         "required": [
           "name",
@@ -509,10 +509,10 @@
         "properties": {
           "name": {
             "type": "string"
-            }, 
+          },
           "query": {
             "type": "string"
-          }, 
+          },
           "description": {
             "type": "string"
           }
