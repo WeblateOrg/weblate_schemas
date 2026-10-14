@@ -184,6 +184,13 @@ def test_userdata() -> None:
                     "activity": "login",
                 },
             ],
+            "saved_searches": [
+                {
+                    "name": "Comments",
+                    "query": "has:comment",
+                    "description": "",
+                },
+            ],
         },
         "weblate-userdata.schema.json",
     )
@@ -298,6 +305,30 @@ def test_backup() -> None:
         backup_with_teams,
         "weblate-backup.schema.json",
     )
+
+    saved_search = {
+        "name": "Important",
+        "query": "priority:>100",
+        "description": "Translate first",
+    }
+    backup_with_saved_searches = copy.deepcopy(base_backup)
+    backup_with_saved_searches["saved_searches"] = [
+        saved_search,
+        {"name": "Comments", "query": "has:comment", "description": ""},
+    ]
+    validate_schema(backup_with_saved_searches, "weblate-backup.schema.json")
+    for saved_searches in (
+        saved_search,
+        [{"name": "Important", "query": "priority:>100"}],
+        [saved_search | {"unknown": True}],
+        [saved_search | {"query": None}],
+        [saved_search | {"name": "x" * 191}],
+        [saved_search | {"description": "x" * 251}],
+    ):
+        invalid_saved_searches = copy.deepcopy(base_backup)
+        invalid_saved_searches["saved_searches"] = saved_searches
+        with pytest.raises(ValidationError):
+            validate_schema(invalid_saved_searches, "weblate-backup.schema.json")
 
     for internal in (False, True):
         typed_backup = copy.deepcopy(backup_with_teams)
