@@ -30,7 +30,7 @@ jobs:
       with:
         enable-cache: true
         cache-suffix: ${{ matrix.python-version }}
-        version: 0.13.0
+        version: 0.13.1
     - name: Install pip dependencies
       run: uv sync --dev
     - name: Test
