@@ -8,7 +8,7 @@ import copy
 from typing import Any, TypeAlias
 
 import pytest
-from jsonschema import Draft7Validator, validate
+from jsonschema import Draft202012Validator, validate
 from jsonschema.exceptions import ValidationError
 
 from weblate_schemas import load_schema, validate_schema
@@ -268,6 +268,23 @@ def fixture_base_backup() -> JSONData:
             }
         ],
     }
+
+
+@pytest.mark.parametrize(
+    ("section", "field", "value"),
+    [
+        ("metadata", "timestamp", "2026-02-30T12:00:00Z"),
+        ("metadata", "domain", "invalid host"),
+        ("project", "web", "https://example.com/invalid path"),
+    ],
+)
+def test_backup_rejects_invalid_formats(
+    base_backup: JSONData, section: str, field: str, value: str
+) -> None:
+    """Continue enforcing formats with the current schema dialect."""
+    base_backup[section][field] = value
+    with pytest.raises(ValidationError):
+        validate_schema(base_backup, "weblate-backup.schema.json")
 
 
 def test_backup(base_backup: JSONData) -> None:
@@ -778,7 +795,7 @@ def test_component_revision_schema_accepts_object_ids(field: str, value: str) ->
     schema = load_schema("weblate-component.schema.json")["properties"]["component"][
         "properties"
     ][field]
-    Draft7Validator(schema).validate(value)
+    Draft202012Validator(schema).validate(value)
 
 
 @pytest.mark.parametrize("field", ["local_revision", "remote_revision"])
@@ -789,7 +806,7 @@ def test_component_revision_schema_rejects_invalid_ids(field: str, value: str) -
         "properties"
     ][field]
     with pytest.raises(ValidationError):
-        Draft7Validator(schema).validate(value)
+        Draft202012Validator(schema).validate(value)
 
 
 @pytest.mark.parametrize(
@@ -801,7 +818,7 @@ def test_translation_revision_schema_accepts_file_hashes(value: str) -> None:
     schema = load_schema("weblate-component.schema.json")["properties"]["translations"][
         "items"
     ]["properties"]["revision"]
-    Draft7Validator(schema).validate(value)
+    Draft202012Validator(schema).validate(value)
 
 
 @pytest.mark.parametrize(
@@ -821,7 +838,7 @@ def test_translation_revision_schema_rejects_invalid_hashes(value: str) -> None:
         "items"
     ]["properties"]["revision"]
     with pytest.raises(ValidationError):
-        Draft7Validator(schema).validate(value)
+        Draft202012Validator(schema).validate(value)
 
 
 @pytest.mark.parametrize(
@@ -837,10 +854,10 @@ def test_component_checksum_schema_requires_exact_hex(path: tuple[str, ...]) -> 
     schema = load_schema("weblate-component.schema.json")["properties"]
     for part in path:
         schema = schema[part]
-    Draft7Validator(schema).validate("1234567890abcdef")
+    Draft202012Validator(schema).validate("1234567890abcdef")
     for value in ("x1234567890abcdef", "1234567890abcdef\n", "ABCDEF1234567890", 1):
         with pytest.raises(ValidationError):
-            Draft7Validator(schema).validate(value)
+            Draft202012Validator(schema).validate(value)
 
 
 merge_body = {

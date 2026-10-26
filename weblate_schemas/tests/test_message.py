@@ -4,6 +4,9 @@
 
 """Test the Message classes."""
 
+import pytest
+from jsonschema.exceptions import ValidationError
+
 from weblate_schemas.messages import WeblateV1Message
 from weblate_schemas.tests.test_valid import (
     body_with_context,
@@ -11,6 +14,18 @@ from weblate_schemas.tests.test_valid import (
     new_string_body,
     new_translation_body,
 )
+
+
+def test_validate_message() -> None:
+    """Validate a migrated body schema through Fedora Messaging."""
+    WeblateV1Message(topic="test.topic", body=merge_body).validate()
+
+
+@pytest.mark.parametrize("change", [{"change_id": "invalid"}, {"action": None}])
+def test_validate_invalid_message(change: dict) -> None:
+    """Reject malformed bodies through Fedora Messaging's validator."""
+    with pytest.raises(ValidationError):
+        WeblateV1Message(topic="test.topic", body=merge_body | change).validate()
 
 
 def test_base_message() -> None:

@@ -7,7 +7,7 @@
 from typing import Any
 
 import pytest
-from jsonschema import Draft7Validator
+from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError
 
 from weblate_schemas import load_schema, validate_schema
@@ -49,7 +49,7 @@ def data(schema_name: str) -> dict[str, Any]:
 
 def test_schema(schema_name: str, data: dict[str, Any]) -> None:
     """Check schemas themselves and representative valid documents."""
-    Draft7Validator.check_schema(load_schema(schema_name))
+    Draft202012Validator.check_schema(load_schema(schema_name))
     validate_schema(data, schema_name)
 
 

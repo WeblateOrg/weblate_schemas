@@ -1,6 +1,6 @@
 {
   "$id": "https://weblate.org/schemas/weblate-cdn-manifest.schema.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CDN manifest",
   "description": "Translation files published by the JavaScript and translation files CDN add-ons.",
   "type": "object",
