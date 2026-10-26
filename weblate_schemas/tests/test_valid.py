@@ -617,11 +617,33 @@ def test_component() -> None:
         data,
         "weblate-component.schema.json",
     )
-    component["vcs_params"] = {"git_force_push": True}
-    validate_schema(
-        data,
-        "weblate-component.schema.json",
-    )
+    for vcs_params in (
+        {},
+        {"git_force_push": True},
+        {
+            "custom_string": "value",
+            "custom_integer": 42,
+            "custom_boolean": False,
+            "merge_request_merge_method": "custom-method",
+        },
+    ):
+        component["vcs_params"] = vcs_params
+        validate_schema(data, "weblate-component.schema.json")
+    for invalid_vcs_params in (
+        {"custom": None},
+        {"custom": 1.5},
+        {"custom": []},
+        {"custom": {}},
+        None,
+        "invalid",
+        1,
+        False,
+        [],
+    ):
+        invalid_data = copy.deepcopy(data)
+        invalid_data["component"]["vcs_params"] = invalid_vcs_params
+        with pytest.raises(ValidationError):
+            validate_schema(invalid_data, "weblate-component.schema.json")
     component.update(
         {
             "secondary_language": None,
