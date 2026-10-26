@@ -6,6 +6,7 @@
     "category": {
       "$id": "#/definitions/category",
       "title": "Category",
+      "type": "object",
       "additionalProperties": false,
       "required": [
         "name",
@@ -198,11 +199,9 @@
           "$id": "#/definitions/category/items/category",
           "title": "Categories",
           "type": "array",
-          "items": [
-            {
-              "$ref": "#/definitions/category"
-            }
-          ],
+          "items": {
+            "$ref": "#/definitions/category"
+          },
           "default": []
         }
       }
