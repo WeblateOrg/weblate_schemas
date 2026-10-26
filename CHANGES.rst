@@ -4,6 +4,7 @@ Changelog
 Unreleased
 ----------
 
+* Validated project backup revisions and unit checksums more strictly.
 * Added a manifest schema for the JavaScript and translation files CDN add-ons.
 * Verified Kotlin SDK schemas against Weblate and expanded build and manifest validation coverage.
 

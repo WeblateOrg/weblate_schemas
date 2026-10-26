@@ -474,12 +474,14 @@
         "remote_revision": {
           "$id": "#root/component/remote_revision",
           "title": "Remote revision",
-          "type": "string"
+          "type": "string",
+          "pattern": "^(?:[0-9a-fA-F]{40}|[0-9a-fA-F]{64})?$(?![\\s\\S])"
         },
         "local_revision": {
           "$id": "#root/component/local_revision",
           "title": "Local revision",
-          "type": "string"
+          "type": "string",
+          "pattern": "^(?:[0-9a-fA-F]{40}|[0-9a-fA-F]{64})?$(?![\\s\\S])"
         }
       }
     },
@@ -553,7 +555,8 @@
           "revision": {
             "$id": "#root/translations/items/revision",
             "title": "File revision",
-            "type": "string"
+            "type": "string",
+            "pattern": "^(?:[0-9a-f]{40}(?::[0-9]+)?(?:,[0-9a-f]{40}){0,2})?$(?![\\s\\S])"
           },
           "check_flags": {
             "$id": "#root/translations/items/check_flags",
@@ -605,7 +608,7 @@
           "id_hash": {
             "$id": "#root/units/items/id_hash",
             "title": "",
-            "pattern": "[0-9a-f]{16}",
+            "pattern": "^[0-9a-f]{16}$(?![\\s\\S])",
             "type": "string"
           },
           "location": {
@@ -892,7 +895,7 @@
             "type": "array",
             "items": {
               "$id": "#root/screenshots/items/units/items",
-              "pattern": "[0-9a-f]{16}",
+              "pattern": "^[0-9a-f]{16}$(?![\\s\\S])",
               "type": "string"
             }
           }
@@ -928,7 +931,8 @@
           "unit_id_hash": {
             "$id": "#root/pending_unit_changes/items/unit_id_hash",
             "title": "",
-            "pattern": "[0-9a-f]{16}",
+            "type": "string",
+            "pattern": "^[0-9a-f]{16}$(?![\\s\\S])",
             "examples": [
               "1234567890abcdef"
             ]
