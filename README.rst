@@ -25,6 +25,16 @@ This module contains schemas used in Weblate exports, Kotlin SDK build
 registration, and CDN manifests. Load them with ``weblate_schemas.load_schema``
 or validate data with ``weblate_schemas.validate_schema``.
 
+The schemas use JSON Schema Draft 2020-12. External validators must support this
+draft. The validation helper enables format checking, including dates, hostnames,
+and IRIs; direct users of a JSON Schema validator must enable format checking
+explicitly when they need the same checks.
+
+Reusable definitions are stored in ``$defs``. Consumers inspecting schema
+structure or referencing definitions must use ``#/$defs/`` paths. Root schema
+identifiers and exported JSON formats are unchanged; legacy nested fragment
+identifiers are no longer provided.
+
 ``weblate-cdn-manifest.schema.json`` describes manifests from the JavaScript
 and translation files CDN add-ons, with a list of files for each language.
 ``weblate-kotlin-sdk-manifest.schema.json`` describes Kotlin SDK manifests,

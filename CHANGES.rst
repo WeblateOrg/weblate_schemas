@@ -4,6 +4,7 @@ Changelog
 Unreleased
 ----------
 
+* Migrated all schemas to JSON Schema Draft 2020-12, using ``$defs`` for reusable definitions and removing legacy nested fragment identifiers. External validators must support the new draft; exported JSON formats are unchanged.
 * Fixed validation of every nested category in project backups, including rejecting non-object children.
 * Validated project backup revisions and unit checksums more strictly.
 * Added a manifest schema for the JavaScript and translation files CDN add-ons.
