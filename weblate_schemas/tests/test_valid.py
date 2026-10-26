@@ -287,6 +287,37 @@ def test_backup_rejects_invalid_formats(
         validate_schema(base_backup, "weblate-backup.schema.json")
 
 
+@pytest.mark.parametrize(
+    ("component", "exclude"),
+    [("my-category/test-component", "^release/"), (None, "")],
+)
+def test_backup_branch_discovery(
+    base_backup: JSONData, component: str | None, exclude: str
+) -> None:
+    """Accept project branch discovery settings."""
+    base_backup["project"]["branch_discovery_component"] = component
+    base_backup["project"]["branch_discovery_exclude"] = exclude
+    validate_schema(base_backup, "weblate-backup.schema.json")
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("branch_discovery_component", ""),
+        ("branch_discovery_component", 42),
+        ("branch_discovery_exclude", None),
+        ("branch_discovery_exclude", "x" * 201),
+    ],
+)
+def test_backup_rejects_invalid_branch_discovery(
+    base_backup: JSONData, field: str, value: object
+) -> None:
+    """Reject malformed project branch discovery settings."""
+    base_backup["project"][field] = value
+    with pytest.raises(ValidationError):
+        validate_schema(base_backup, "weblate-backup.schema.json")
+
+
 def test_backup(base_backup: JSONData) -> None:
     """Test backup schema being valid."""
     backup_without_teams = base_backup.copy()
