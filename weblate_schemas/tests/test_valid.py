@@ -196,9 +196,10 @@ def test_userdata() -> None:
     )
 
 
-def test_backup() -> None:
-    """Test backup schema being valid."""
-    base_backup: JSONData = {
+@pytest.fixture(name="base_backup")
+def fixture_base_backup() -> JSONData:
+    """Provide a complete valid project backup."""
+    return {
         "metadata": {
             "version": "4.13",
             "server": "Weblate",
@@ -267,12 +268,17 @@ def test_backup() -> None:
             }
         ],
     }
+
+
+def test_backup(base_backup: JSONData) -> None:
+    """Test backup schema being valid."""
     backup_without_teams = base_backup.copy()
 
     validate_schema(
         backup_without_teams,
         "weblate-backup.schema.json",
     )
+
     backup_with_teams = base_backup.copy()
     backup_with_teams["teams"] = [
         {
@@ -411,6 +417,50 @@ def test_backup() -> None:
         backup_with_set_language_team,
         "weblate-backup.schema.json",
     )
+
+
+def test_backup_nested_categories(base_backup: JSONData) -> None:
+    """Validate every nested category, including later siblings and deeper children."""
+    backup_with_nested_categories = copy.deepcopy(base_backup)
+    child = {"name": "Child", "slug": "my-category/child", "categories": []}
+    backup_with_nested_categories["categories"][0]["categories"] = [
+        child,
+        {
+            "name": "Sibling",
+            "slug": "my-category/sibling",
+            "categories": [
+                {
+                    "name": "First leaf",
+                    "slug": "my-category/sibling/first",
+                    "categories": [],
+                },
+                {
+                    "name": "Second leaf",
+                    "slug": "my-category/sibling/second",
+                    "categories": [],
+                },
+            ],
+        },
+    ]
+    validate_schema(backup_with_nested_categories, "weblate-backup.schema.json")
+    backup_with_empty_categories = copy.deepcopy(base_backup)
+    backup_with_empty_categories["categories"][0]["categories"] = []
+    validate_schema(backup_with_empty_categories, "weblate-backup.schema.json")
+
+    for nested in (False, True):
+        for invalid_child in (
+            "invalid",
+            {key: value for key, value in child.items() if key != "name"},
+            {key: value for key, value in child.items() if key != "slug"},
+            {key: value for key, value in child.items() if key != "categories"},
+        ):
+            invalid_backup = copy.deepcopy(backup_with_nested_categories)
+            children = invalid_backup["categories"][0]["categories"]
+            if nested:
+                children = children[1]["categories"]
+            children[1] = invalid_child
+            with pytest.raises(ValidationError):
+                validate_schema(invalid_backup, "weblate-backup.schema.json")
 
 
 def test_backup_blank_url() -> None:
