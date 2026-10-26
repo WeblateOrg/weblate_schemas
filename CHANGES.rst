@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2026.14
+----------
+
+* Added branch discovery settings to project backups.
+
 2026.13
 -------
 
