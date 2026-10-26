@@ -21,9 +21,20 @@ Weblate schemas
     :alt: Documentation
     :target: https://docs.weblate.org/en/latest/schemas.html
 
-This module contains schemas used in Weblate exports and Kotlin SDK build
-registration and CDN manifests. Load them with ``weblate_schemas.load_schema``
+This module contains schemas used in Weblate exports, Kotlin SDK build
+registration, and CDN manifests. Load them with ``weblate_schemas.load_schema``
 or validate data with ``weblate_schemas.validate_schema``.
+
+``weblate-cdn-manifest.schema.json`` describes manifests from the JavaScript
+and translation files CDN add-ons, with a list of files for each language.
+``weblate-kotlin-sdk-manifest.schema.json`` describes Kotlin SDK manifests,
+with one ARSC artifact per language. Kotlin build registration data uses
+``weblate-kotlin-sdk-build.schema.json``.
+
+The Kotlin schemas describe data structure and individual values. Weblate also
+checks resource-count limits, resource ID uniqueness and type relationships,
+and that artifact URLs contain the corresponding checksum. These checks remain
+application-level validation.
 
 .. image:: https://s.weblate.org/cdn/Logo-Darktext-borders.png
    :target: https://weblate.org/
