@@ -7,7 +7,7 @@ Files: weblate_schemas/schemas/*.schema.json
 Copyright: Michal Čihař <michal@weblate.org>
 License: MIT
 
-Files: CHANGES.rst README.rst
+Files: AGENTS.md CHANGES.rst README.rst
 Copyright: Michal Čihař <michal@weblate.org>
 License: MIT
 
