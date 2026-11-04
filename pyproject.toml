@@ -24,7 +24,7 @@ test = [
   "jsonschema[format]"
 ]
 types = [
-  "ty==0.0.96"
+  "ty==0.0.97"
 ]
 
 [project]
