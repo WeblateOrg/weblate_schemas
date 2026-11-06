@@ -11,6 +11,6 @@ Files: AGENTS.md CHANGES.rst README.rst
 Copyright: Michal Čihař <michal@weblate.org>
 License: MIT
 
-Files: .deepsource.toml .github/workflows/setup.yml .github/workflows/test.yml .gitignore .pre-commit-config.yaml MANIFEST.in pyproject.toml setup.cfg requirements*.txt
+Files: .github/workflows/setup.yml .github/workflows/test.yml .gitignore .pre-commit-config.yaml MANIFEST.in pyproject.toml setup.cfg requirements*.txt
 Copyright: Michal Čihař <michal@weblate.org>
 License: MIT
