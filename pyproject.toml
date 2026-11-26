@@ -24,7 +24,7 @@ test = [
   "jsonschema[format]"
 ]
 types = [
-  "ty==0.0.110"
+  "ty==0.0.111"
 ]
 package-lint = [
   "check-manifest==0.51",
